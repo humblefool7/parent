@@ -1,0 +1,39 @@
+<div class="pages">
+  <div data-page="attendance" class="page navbar-fixed">
+  <div class="navbar">
+  <div class="navbar-inner">
+    <div class="left sliding"><a href="index.html" class="link"> <i class="icon icon-back"></i></a></div>
+    <div class="center sliding">Attendance</div>
+    <div class="right"><a href="#" class="link icon-only open-panel"> <i class="icon icon-bars"></i></a></div>
+  </div>
+      <div class="list-block" style="margin-top: 56px;background-color:#fafbfc;color: black;">
+            <ul>
+                <li><a href="#" class="item-link smart-select" data-open-in="picker">
+                    <select name="class" id="js-attendance-class">
+                      {{#each work}}
+                      <option value="{{id}}" data-class="{{class_id}}" data-subject="{{subject_id}}">{{class_name}}</option>
+                      {{/each}}
+                    </select>
+                  <div class="item-content">
+                      <div class="item-inner">
+                          <div class="item-title">Class</div>
+                      </div>
+                </div></a></li>
+            </ul>
+      </div>
+  </div>
+    <div class="page-content" style="margin-top: 40px;">
+<!--           <div class="content-block-title" id="js-attendance-update"></div> -->
+            <div class="content-block-title">Untick the students who are absent</div>
+          <!-- <p>Untick the students who are absent.</p> -->
+          <div class="content-block">
+              <div class="list-block">
+                <ul id="js-attendance-chart">
+                </ul>
+                <p><a href="#" class="button button-fill button-big color-red js-update-attendance-button" style="display: none">Update</a></p>
+                <p><a href="#" class="button button-big button-fill js-add-attendance-button" style="display: none">Upload</a></p> 
+              </div>
+          </div>
+  </div>
+</div>
+</div>

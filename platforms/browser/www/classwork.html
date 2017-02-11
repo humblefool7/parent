@@ -1,0 +1,63 @@
+<div class="pages">
+  <div data-page="classwork" class="page navbar-fixed">
+  <div class="navbar">
+  <div class="navbar-inner">
+    <div class="left sliding"><a href="index.html" class="link"> <i class="icon icon-back"></i></a></div>
+    <div class="center sliding">Classwork</div>
+    <div class="right"><a href="#" class="link icon-only open-panel"> <i class="icon icon-bars"></i></a></div>
+    </div>
+    <div class="list-block" style="margin-top: 56px;background-color:#fafbfc;color: black;">
+                <ul>
+                    <li><a href="#" class="item-link smart-select" data-open-in="picker">
+                        <select name="class" id="js-classwork-class">
+                          {{#each work}}
+                          <option value="{{id}}" data-class="{{class_id}}" data-subject="{{subject_id}}">{{class_name}} {{subject_name}}</option>
+                          {{/each}}
+                        </select>
+                      <div class="item-content">
+                          <div class="item-inner">
+                              <div class="item-title">Class</div>
+                          </div>
+                    </div></a></li>
+                </ul>
+            </div>
+  </div>
+    <div class="page-content" style="margin-top: 40px;">
+          <div class="content-block-title">Classwork for Today</div>
+          <div class="card">
+          <div class="card-content"> 
+            <div class="card-content-inner">
+            <div class="list-block">
+                <ul>
+                  <li class="align-top">
+                          
+                    <div class="item-content">
+                      <div class="item-inner">
+                        <div class="item-input">
+                            <textarea id="js-today-classwork" placeholder="Write your classwork for today here" rows="14" cols="50" name="classwork">{{today_classwork}}</textarea>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+                </div>
+            </div>
+          </div>
+          <div class="card-footer"><a href="#" class="button button-raised button-fill" id="save_classwork">Save</a></div>
+          </div>
+          <div class="content-block-title">Click on date to view classwork for a particular day</div>
+          <div class="card">
+            <div class="card-content" style=""> 
+                      <div class="content-block js-classwork-calender">
+                      <div style="padding:0; margin-right:-15px; width:auto" class="content-block-inner">
+                      <div id="calendar-inline-container"></div>
+                      </div>
+                      </div> 
+<!--             <div class="content-block-title">Last classwork</div>
+              <div class="card-content-inner" id="js-last-classwork">{{last_classwork}}</div> -->
+            </div>
+            <div class="card-footer" id="js-last-classwork-date"></div>
+          </div>
+    </div>
+  </div>
+</div>

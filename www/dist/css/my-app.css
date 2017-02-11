@@ -1,0 +1,60 @@
+.shadowbox{
+	    color: black;
+	margin-top: -10px;
+/*	margin-left: -10px;*/
+  font-size: 15px;
+padding: 14px !important;
+/*text-shadow: 0px -1px 0px rgba(30, 30, 30, 0.8);*/
+/*-webkit-border-radius: 33.64864864864865px;
+-moz-border-radius: 33.64864864864865px;
+border-radius: 33.64864864864865px;*/
+-webkit-box-shadow: 0px 5px 5px rgba(50, 50, 50, 0.16);
+-moz-box-shadow:    0px 5px 5px rgba(50, 50, 50, 0.16);
+box-shadow:         0px 5px 5px rgba(50, 50, 50, 0.16);
+width: calc((100% - 6px*1)/ 2) !important;
+    border-radius: 3%;
+}
+
+.shadowbox a{
+	    color: black;
+}
+
+/*.picker-header{
+	display:none !important;
+}*/
+
+.js-classwork-calender .picker-modal-inner{
+	padding-top: 10px;
+}
+
+.picker-calendar-months{
+	    overflow: initial;
+}
+
+.picker-calendar-day span{
+	font-size: 15px;
+}
+
+.picker-modal .picker-header+.picker-footer+.toolbar+.picker-modal-inner{
+	height: 100% !important;
+}
+
+.js-classwork-calender .picker-footer{
+	display:none !important;
+}
+
+.picker-footer{
+	z-index: 123456789;
+}
+
+/*.close-picker{
+	display: none !important;
+}*/
+
+/*.picker-modal .picker-footer{
+	display: none !important;
+}*/
+
+/*.picker-calendar{
+	min-width: 280px;
+}*/
