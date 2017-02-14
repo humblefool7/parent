@@ -313,12 +313,15 @@ function downloadFile(URL) {
   var fileTransfer = new FileTransfer();
   var uri = encodeURI(URL);
   var path = fileSystem.root.toURL() + "appName/example.jpg";
+  // var path = "file://data/user/0/"+"nishant/example.jpg"
+  console.log(path);
 
   fileTransfer.download(
     uri,
     path,
     function(entry) {
         console.log("download complete: " + entry.toURL());
+        refreshMedia.refresh(URI);
       // refreshMedia.refresh(path); // Refresh the image gallery
     },
     function(error) {
