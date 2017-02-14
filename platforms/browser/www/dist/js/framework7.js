@@ -5291,6 +5291,7 @@
         
         };
         app.smartSelectAddOption = function (select, option, index) {
+            // console.log('something');
             select = $(select);
             var smartSelect = select.parents('.smart-select');
             if (typeof index === 'undefined') {
@@ -5305,6 +5306,25 @@
             if (opened) {
                 app.smartSelectOpen(smartSelect, true);
             }
+        };
+        app.smartSelectRemoveOption = function (select,index) {
+            // console.log('something');
+            select = $(select);
+            var smartSelect = select.parents('.smart-select');
+            if (typeof index === 'undefined') {
+                // select.append(option);
+            }
+            else {
+                console.log(typeof select);
+                // console.log('removing');
+                // $(option).insertBefore(select.find('option').eq(index));
+            }
+            app.initSmartSelects(smartSelect);
+            // var selectName = smartSelect.find('select').attr('name');
+            // var opened = $('.page.smart-select-page[data-select-name="' + selectName + '"]').length > 0;
+            // if (opened) {
+            //     app.smartSelectOpen(smartSelect, true);
+            // }
         };
         app.smartSelectOpen = function (smartSelect, reLayout) {
             smartSelect = $(smartSelect);

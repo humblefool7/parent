@@ -9,22 +9,22 @@
         <div class="list-block" style="margin-top: 56px;background-color:#fafbfc;color: black;">
           <ul>
               <li><a href="#" class="item-link smart-select" data-open-in="picker">
-                  <select name="class" id="js-notes-class">
-                    {{#each work}}
-                    <option value="{{id}}" data-class="{{class_id}}" data-subject="{{subject_id}}">{{class_name}} {{subject_name}}</option>
+                  <select name="subjects" id="js-notes-subject" data-class={{class_id}}>
+                    {{#each subjects}}
+                    <option value="{{subject_id}}">{{subject_name}}</option>
                     {{/each}}
                   </select>
                 <div class="item-content">
                     <div class="item-inner">
-                        <div class="item-title">Class</div>
+                        <div class="item-title">Subject</div>
                     </div>
               </div></a></li>
           </ul>
     </div>
   </div>
-  <a href="note-creation.html" class="floating-button">
+<!--   <a href="note-creation.html" class="floating-button">
     <i class="icon icon-plus"></i>
-  </a>
+  </a> -->
   <div class="page-content" style="margin-top: 40px;">
       <div class="timeline" id="js-notes-timeline" style="padding-left:0px;padding-bottom: 25px">
       </div>

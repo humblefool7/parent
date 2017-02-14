@@ -30,15 +30,15 @@
   <!--   <title>Convent School Appplication</title> -->
 </head>
   <body class="theme-lightblue">
-    <div class="login-screen">
+    <div class="login-screen modal-in">
       <!-- Default view-page layout -->
       <div class="view">
         <div class="page">
           <!-- page-content has additional login-screen content -->
           <div class="page-content login-screen-content">
-          <div style="margin: auto;margin-top: 20vh;">
+          <div style="margin: auto;margin-top: 25vh;">
             <div class="login-screen-title">
-                Inkbox
+                Modern School
             <!-- <img src ="images/school_logo.png"> -->
 
             </div>
@@ -46,7 +46,7 @@
             <form>
               <div class="list-block">
                 <ul>
-                  <li class="item-content">
+                  <li class="item-content js-phone-field">
                     <div class="item-inner">
                       <div class="center">Phone</div>
                       <div class="item-input">
@@ -54,11 +54,11 @@
                       </div>
                     </div>
                   </li>
-                  <li class="item-content">
+                  <li class="item-content js-otp-field" style="display: none">
                     <div class="item-inner">
-                      <div class="item-title center">Pin</div>
+                      <div class="item-title center">OTP</div>
                       <div class="item-input">
-                        <input type="password" name="pin" placeholder="Pin" id="js-pin">
+                        <input type="number" name="pin" placeholder="****" id="js-otp">
                       </div>
                     </div>
                   </li>
@@ -70,7 +70,11 @@
               <div class="list-block">
                 <ul>
                 <div class="content-block">
-                    <a class="button button-big button-round button-fill active js-login-teacher" href="#">Login</a>
+<!--                 <a href="#" class="back link"> <i class="icon icon-back"></i><span>Back</span></a> -->
+                    <a class="button button-big button-round button-fill active js-generate-otp" href="#"><span>Get otp</span><i class="icon icon-forward"></i></a>                    <a class="button button-big button-round button-fill active js-submit-otp" href="#" style="display: none"><span>Proceed</span><i class="icon icon-forward"></i></a>
+                    <br>
+                    <a class="button button-big button-round button-fill active js-login-go-back" href="#" style="display: none"><i class="icon icon-back"></i><span>Go back</span></a>
+                
                 </div>
                 </ul>
               </div>
@@ -100,9 +104,6 @@
           <ul>
             <li style=""><a href="index.html" class="item-link close-panel">
             <div class="item-content">
-<!--             <div class="item-media">
-              <img src="https://media-public.canva.com/MABVOiTdQE4/1/thumbnail.png" alt="Smiley face" height="42">
-            </div> -->
             <div class="item-inner">
             <div class="item-title">Home</div>
             </div>
@@ -113,56 +114,8 @@
             <div class="item-title">Timetable</div>
             </div>
             </div></a></li>
-<!--             <li style=""><a href="attendance.html" class="item-link close-panel">
+            <li style=""><a href="#" class="item-link js-logout-parent">
             <div class="item-content">
-            <div class="item-media">
-              <img src="https://media-public.canva.com/MAB_5lc5KDk/2/thumbnail.png" alt="Smiley face" height="42">
-            </div>
-            <div class="item-inner">
-            <div class="item-title">Attendance</div>
-            </div>
-            </div></a></li>
-            <li style=""><a href="homework.html" class="item-link close-panel">
-            <div class="item-content">
-            <div class="item-media">
-              <img src="https://media-public.canva.com/MABVOsducuE/1/thumbnail.png" alt="homework" height="42">
-            </div>
-            <div class="item-inner">
-            <div class="item-title">Homework</div>
-            </div>
-            </div></a></li>
-            <li style=""><a href="notes.html" class="item-link close-panel">
-            <div class="item-content">
-            <div class="item-media">
-                <img src="https://media-public.canva.com/MACDwrK8k3k/1/thumbnail.png" alt="homework" height="42">
-            </div>
-            <div class="item-inner">
-            <div class="item-title">Notes</div>
-            </div>
-            </div></a></li>
-            <li style=""><a href="exam.html" class="item-link close-panel">
-            <div class="item-content">
-            <div class="item-media">
-                <img src="https://media-public.canva.com/MABWucNKgHo/1/thumbnail.png" alt="homework" height="42">
-            </div>
-            <div class="item-inner">
-            <div class="item-title">Exam</div>
-            </div>
-            </div></a></li>
-            <li style=""><a href="announcement.html" class="item-link close-panel">
-            <div class="item-content">
-            <div class="item-media">
-                <img src="https://media-public.canva.com/MABWuQTrRAE/1/thumbnail.png" alt="homework" height="42">
-            </div>
-            <div class="item-inner">
-            <div class="item-title">Announcement</div>
-            </div>
-            </div></a></li> -->
-            <li style=""><a href="#" class="item-link js-logout-teacher">
-            <div class="item-content">
-<!--             <div class="item-media">
-                <img src="https://media-public.canva.com/MAB0rw0oHgk/1/thumbnail.png" alt="homework" height="42">
-            </div> -->
             <div class="item-inner">
             <div class="item-title">Logout</div>
             </div>
@@ -198,11 +151,28 @@
                     <div class="preloader"></div>
                     <div class="pull-to-refresh-arrow"></div>
                 </div> -->
-                <div class="row" style="font-weight: normal;background-color: #fafbfc;border-bottom: 1px solid #cfdbe2;padding: 10px;">
-                    <div class="col-100">
-                          <b id="js-school-details" style="display: none">{{school_details}}</b>
-                          <small>Welcome back teacher</small>
-                    </div>
+                <div class="list-block js-dashboard-header" style="font-weight: normal;background-color: #fafbfc;padding: 2px; margin-top: 0px">
+                    <!-- <div class="list-block"> -->
+                          <small class="js-welcome-message" style="display: none"> Welcome Guardian</small>
+                    <!-- </div> -->
+                    <!-- <div class="list-block"> -->
+<!--                               <div class="list-block"> -->
+
+                              <!-- </div> -->
+                    <!-- </div> -->
+                    <ul>
+                    <li><a href="#" class="item-link smart-select js-welcome-students" data-open-in="popup" data-class = "{{class_id}}">
+                        <select name="students" class="students-select">
+                          {{#each student}}
+                          <option value="{{student_id}}">{{student_name}}</option>
+                          {{/each}}
+                        </select>
+                      <div class="item-content">
+                          <div class="item-inner">
+                              <div class="item-title">Name</div>
+                          </div>
+                    </div></a></li>
+                </ul>
                 </div>
 <!--                     <div class="content-block-title">Dashboard</div> -->
                       <div class="content-block ks-grid">
@@ -259,7 +229,7 @@
                                   <div class="item-content">
                                         <img src="https://assets.materialup.com/uploads/d0b393f6-3975-48dd-b7ca-bf0289187c6e/preview" alt="exam" height="80px">
                                     <div class="item-inner">
-                                        <div class="item-title"><b>Exams</b></div>
+                                        <div class="item-title"><b>Exam Schedule</b></div>
                                     </div>
                                   </div>
                                   </a>
@@ -374,7 +344,7 @@
 <!--               <div class="card-content">
                 <div class="card-content-inner">{{description}}</div>
               </div> -->
-              <a onclick="browsePhotos('{{files}}')"><div class="card-footer"><b>Preview/Delete files</b></div></a>
+              <a onclick="browsePhotos('{{files}}')"><div class="card-footer"><b>Preview files</b></div></a>
         </div>
         </div>
     {{/each notes}}
@@ -477,13 +447,14 @@
                 <span class="photo-browser-total"></span>
           </div>
             <div class="right">
-              <i class="material-icons" onclick="deletenote()">delete</i>
+<!--             <a href="http://139.59.34.36/master/uploads/1483080139.jpg" download="ferrari.jpg">Download</a> -->
+              <i class="material-icons" onclick="downloadnote()">delete</i>
             </div>
         </div>
     </div>  
     </script>
-    <script src="http://c3js.org/js/d3-3.5.6.min-77adef17.js" type="text/javascript"></script>
-    <script src="http://c3js.org/js/c3.min-4c5bef8f.js" type="text/javascript"></script>
+    <script src="js/chart1.js" type="text/javascript"></script>
+    <script src="js/chart2.js" type="text/javascript"></script>
     <!-- Path to your app js-->
     <script type="text/javascript" src="js/my-app.js"></script>
   </body>
