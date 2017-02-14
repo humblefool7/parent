@@ -321,7 +321,7 @@ function downloadFile(URL) {
     path,
     function(entry) {
         console.log("download complete: " + entry.toURL());
-        refreshMedia.refresh(URI);
+        refreshMedia.refresh(path);
       // refreshMedia.refresh(path); // Refresh the image gallery
     },
     function(error) {
