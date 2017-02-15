@@ -32,7 +32,8 @@
     <plugin name="cordova-plugin-whitelist" source="npm" spec="~1.2.1" />
     <plugin name="cordova-plugin-save-image" source="npm" spec="~1.2.1" />
     <plugin spec="https://github.com/devgeeks/Canvas2ImagePlugin.git" source="git" />
-    <plugin spec="https://github.com/philipp-at-greenqloud/pluginRefreshMedia.git" source="git" />
+    <plugin spec="https://github.com/saurabhgupta050890/Media-Refresher-Cordova.git" source="git" />
+<!--     <plugin spec="https://github.com/philipp-at-greenqloud/pluginRefreshMedia.git" source="git" /> -->
 <!--     <gap:plugin name="cordova-plugin-refresh-gallery" version="1.0.9" source="npm"/> -->
 <!--         <plugin name="com.guinatal.refreshgallery" source="npm" spec="~1.2.1" /> -->
 <!--      <plugin name="pluginRefreshMedia" source="git" value="com.greenqloud.plugin.PluginRefreshMedia"/> -->
