@@ -289,6 +289,13 @@ function downloadnote(){
 
 var folderName = 'curriculars';
 var fileName;
+var canvas2ImagePlugin;
+
+function onDeviceReady()
+{
+    canvas2ImagePlugin = window.plugins.canvas2ImagePlugin;
+}
+
 
 function downloadFile(url) {
     //step to request a file system 
@@ -308,76 +315,90 @@ function downloadFile(url) {
     //     fp = fp + "/" + folderName + "/" + fileName; // fullpath and name of the file which we want to give
     //     // download function call
     //     filetransfer(download_link, fp);
-//     window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, function (fileSystem) {
 
-//   var fileTransfer = new FileTransfer();
-//   var uri = encodeURI(URL);
-//   var path = fileSystem.root.toURL() + "appName/example.jpg";
-//   // var path = "file://data/user/0/"+"nishant/example.jpg"
-//   console.log(path);
+window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, function (fileSystem) {
 
-//   fileTransfer.download(
-//     uri,
-//     path,
-//     function(entry) {
-//         readBinaryFile(entry);
-//         console.log("download complete: " + entry.toURL());
-//         // refreshMedia.refresh(path);
-//       // refreshMedia.refresh(path); // Refresh the image gallery
-//     },
-//     function(error) {
-//       console.log(error.source);
-//       console.log(error.target);
-//       console.log(error.code);
-//     },
-//     false,
-//     {
-//       headers: {
-//         "Authorization": "dGVzdHVzZXJuYW1lOnRlc3RwYXNzd29yZA=="
-//       }
+  var fileTransfer = new FileTransfer();
+  var uri = encodeURI(url);
+  var path = fileSystem.root.toURL() + "appName/example.jpg";
+  // var path = "file://data/user/0/"+"nishant/example.jpg"
+  console.log(path);
+
+  fileTransfer.download(
+    uri,
+    path,
+    function(entry) {
+        // readBinaryFile(entry);
+        console.log("download complete: " + entry.toURL());
+        refreshMedia.refresh(entry.toURL());
+        //cordova.plugins.imagesaver.saveImageToGallery(entry.toURL(),function(){ console.log('success')}, function(){ console.log('error')});
+        // refreshMedia.refresh(path);
+      // refreshMedia.refresh(path); // Refresh the image gallery
+    },
+    function(error) {
+        console.log(JSON.stringify(error));
+      // console.log(error.source);
+      // console.log(error.target);
+      // console.log(error.code);
+    },
+    false,
+    {
+      headers: {
+        "Authorization": "dGVzdHVzZXJuYW1lOnRlc3RwYXNzd29yZA=="
+      }
+    }
+  );
+
+});
+
+// var canvas, context, imageDataUrl, imageData;
+// var success = function(msg){
+//     console.info(msg);
+// };
+
+// var error = function(err){
+//     console.error(err);
+// };
+//     var img = new Image();
+//     img.onload = function() {
+//         canvas = document.createElement('canvas');
+//         canvas.width = img.width;
+//         canvas.height = img.height;
+//         context = canvas.getContext('2d');
+//         context.drawImage(img, 0, 0);
+//         try {
+//             imageDataUrl = canvas.toDataURL('image/jpeg', 1.0);
+//             imageData = imageDataUrl.replace(/data:image\/jpeg;base64,/, '');
+//             // cordova.exec(
+//             //     success,
+//             //     error,
+//             //     'Canvas2ImagePlugin',
+//             //     'saveImageDataToLibrary',
+//             //     [imageData]
+//             // );
+//                 canvas2ImagePlugin.saveImageDataToLibrary(
+//                 function(msg){
+//                     console.log(msg);
+//                 }, 
+//                 function(err){
+//                     console.log(err);
+//                 }, 
+//                 canvas
+//                 );
+//         }
+//         catch(e) {
+//             // console.log('error');
+//             console.log(e.message);
+//             // error(e.message);
+//         }
+//     };
+//     try {
+//         img.src = url;
 //     }
-//   );
-
-// });
-var canvas, context, imageDataUrl, imageData;
-var success = function(msg){
-    console.info(msg);
-};
-
-var error = function(err){
-    console.error(err);
-};
-    var img = new Image();
-    img.onload = function() {
-        canvas = document.createElement('canvas');
-        canvas.width = img.width;
-        canvas.height = img.height;
-        context = canvas.getContext('2d');
-        context.drawImage(img, 0, 0);
-        try {
-            imageDataUrl = canvas.toDataURL('image/jpeg', 1.0);
-            imageData = imageDataUrl.replace(/data:image\/jpeg;base64,/, '');
-            cordova.exec(
-                success,
-                error,
-                'Canvas2ImagePlugin',
-                'saveImageDataToLibrary',
-                [imageData]
-            );
-        }
-        catch(e) {
-            console.log('error');
-            //console.log(e.message);
-            // error(e.message);
-        }
-    };
-    try {
-        img.src = url;
-    }
-    catch(e) {
-        console.log(e.message);
-        // error(e.message);
-    }
+//     catch(e) {
+//         console.log(e.message);
+//         // error(e.message);
+//     }
     }
 
 
