@@ -66,6 +66,9 @@
         },
         "org.devgeeks.Canvas2ImagePlugin": {
             "PACKAGE_NAME": "com.phonegap.helloworld"
+        },
+        "com.metacube.metacampus.mediarefresher": {
+            "PACKAGE_NAME": "com.phonegap.helloworld"
         }
     },
     "dependent_plugins": {

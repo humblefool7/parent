@@ -175,5 +175,14 @@
         },
         "is_top_level": true,
         "variables": {}
+    },
+    "com.metacube.metacampus.mediarefresher": {
+        "source": {
+            "type": "git",
+            "url": "https://github.com/saurabhgupta050890/Media-Refresher-Cordova.git",
+            "subdir": "."
+        },
+        "is_top_level": true,
+        "variables": {}
     }
 }
