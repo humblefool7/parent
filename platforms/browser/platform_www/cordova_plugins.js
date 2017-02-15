@@ -610,14 +610,6 @@ module.exports = [
         "clobbers": [
             "window.canvas2ImagePlugin"
         ]
-    },
-    {
-        "file": "plugins/com.metacube.metacampus.mediarefresher/www/MediaRefresher.js",
-        "id": "com.metacube.metacampus.mediarefresher.MediaRefresher",
-        "pluginId": "com.metacube.metacampus.mediarefresher",
-        "clobbers": [
-            "mediaRefresh"
-        ]
     }
 ];
 module.exports.metadata = 
@@ -644,8 +636,7 @@ module.exports.metadata =
     "cordova-plugin-statusbar": "2.1.3",
     "cordova-plugin-vibration": "2.1.3",
     "cordova-plugin-whitelist": "1.2.2",
-    "org.devgeeks.Canvas2ImagePlugin": "0.6.0",
-    "com.metacube.metacampus.mediarefresher": "0.0.1"
+    "org.devgeeks.Canvas2ImagePlugin": "0.6.0"
 }
 // BOTTOM OF METADATA
 });
