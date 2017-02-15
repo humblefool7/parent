@@ -320,7 +320,8 @@ window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, function (fileSystem) {
 
   var fileTransfer = new FileTransfer();
   var uri = encodeURI(url);
-  var path = fileSystem.root.toURL() + "appName/example.jpg";
+  // var path = fileSystem.root.toURL() + "appName/example.jpg";
+  var path = "/storage/emulated/0/Parent/example.jpg"
   // var path = "file://data/user/0/"+"nishant/example.jpg"
   console.log(path);
 
@@ -332,7 +333,7 @@ window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, function (fileSystem) {
         console.log("download complete: " + entry.toURL());
         //refreshMedia.refresh(entry.toURL());
         //cordova.plugins.imagesaver.saveImageToGallery(entry.toURL(),function(){ console.log('success')}, function(){ console.log('error')});
-        mediaRefresh.scanMedia.saveImageToGallery(entry.toURL(),function(){ console.log('success')}, function(){ console.log('error')});
+        //mediaRefresh.scanMedia.saveImageToGallery(entry.toURL(),function(){ console.log('success')}, function(){ console.log('error')});
         // refreshMedia.refresh(path);
       // refreshMedia.refresh(path); // Refresh the image gallery
     },
