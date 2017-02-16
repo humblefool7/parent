@@ -300,8 +300,8 @@ window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, function (fileSystem) {
     uri,
     path,
     function(entry) {
-        refreshMedia.refresh(path);
-        FullScreenImage.showImageURL(path);
+        // refreshMedia.refresh(path);
+        externalApp.launch(['com.something', '', 'Please download the latest version of this app from the store', externalApp.alertType.OK]);
     },
     function(error) {
         console.log(JSON.stringify(error));

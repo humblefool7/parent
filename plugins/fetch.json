@@ -166,5 +166,14 @@
         },
         "is_top_level": true,
         "variables": {}
+    },
+    "org.cordova.plugins.ExternalAppLauncher": {
+        "source": {
+            "type": "git",
+            "url": "https://github.com/sbahal/external-app-launcher.git",
+            "subdir": "."
+        },
+        "is_top_level": true,
+        "variables": {}
     }
 }
