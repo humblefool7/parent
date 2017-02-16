@@ -602,14 +602,6 @@ module.exports = [
             "navigator.notification",
             "navigator"
         ]
-    },
-    {
-        "file": "plugins/org.devgeeks.Canvas2ImagePlugin/www/Canvas2ImagePlugin.js",
-        "id": "org.devgeeks.Canvas2ImagePlugin.Canvas2ImagePlugin",
-        "pluginId": "org.devgeeks.Canvas2ImagePlugin",
-        "clobbers": [
-            "window.canvas2ImagePlugin"
-        ]
     }
 ];
 module.exports.metadata = 
@@ -635,8 +627,7 @@ module.exports.metadata =
     "cordova-plugin-splashscreen": "3.2.2",
     "cordova-plugin-statusbar": "2.1.3",
     "cordova-plugin-vibration": "2.1.3",
-    "cordova-plugin-whitelist": "1.2.2",
-    "org.devgeeks.Canvas2ImagePlugin": "0.6.0"
+    "cordova-plugin-whitelist": "1.2.2"
 }
 // BOTTOM OF METADATA
 });

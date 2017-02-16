@@ -282,70 +282,29 @@ function browsePhotos(images){
 function downloadnote(){
     //new FileManager().download_file('http://139.59.34.36/master/uploads/1483080139.jpg','target_path',Log('downloaded success'));
     //downloadFile('http://139.59.34.36/master/uploads/1483080139.jpg');
-    var url = 'http://139.59.34.36/master/uploads/1483080139.jpg';
-    downloadFile(url);
+    // var url = 'http://139.59.34.36/master/uploads/1483080139.jpg';
+    var url = notes_active_images[myPhotoBrowser.activeIndex];
+    var title = url.split("/uploads/");
+    console.log(title);
+    downloadFile(notes_active_images[myPhotoBrowser.activeIndex],title[1].split(".")[0]);
     
 }
-
-var folderName = 'curriculars';
-var fileName;
-var canvas2ImagePlugin;
-
-function onDeviceReady()
-{
-    canvas2ImagePlugin = window.plugins.canvas2ImagePlugin;
-}
-
-
-function downloadFile(url) {
-    //step to request a file system 
-    // window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, fileSystemSuccess, fileSystemFail);
-
-    // function fileSystemSuccess(fileSystem) {
-    //     var download_link = encodeURI(URL);
-    //     fileName = download_link.substr(download_link.lastIndexOf('/') + 1); //Get filename of URL
-    //     var directoryEntry = fileSystem.root; // to get root path of directory
-    //     directoryEntry.getDirectory(folderName, {
-    //         create: true,
-    //         exclusive: false
-    //     }, onDirectorySuccess, onDirectoryFail); // creating folder in sdcard
-    //     var rootdir = fileSystem.root;
-    //     var fp = fileSystem.root.toURL();  // Returns Fullpath of local directory
-
-    //     fp = fp + "/" + folderName + "/" + fileName; // fullpath and name of the file which we want to give
-    //     // download function call
-    //     filetransfer(download_link, fp);
-
+function downloadFile(url,title) {
 window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, function (fileSystem) {
 
   var fileTransfer = new FileTransfer();
   var uri = encodeURI(url);
-  console.log(JSON.stringify(fileSystem.root));
-  console.log(fileSystem.root.toURL());
-  // var path = fileSystem.root.toURL() + "appName/example.jpg";
-  // var path = "/storage/emulated/0/Parent/example.jpg"
-  var path = "file:///sdcard/"+"School/example.jpg";
-  // var path = "file://data/user/0/"+"nishant/example.jpg"
-  console.log(path);
+  var path = "file:///sdcard/"+"School/"+title+".jpg";
 
   fileTransfer.download(
     uri,
     path,
     function(entry) {
-        // readBinaryFile(entry);
-        // console.log("download complete: " + entry.toURL());
         refreshMedia.refresh(path);
-        //refreshMedia.refresh(entry.toURL());
-        //cordova.plugins.imagesaver.saveImageToGallery(entry.toURL(),function(){ console.log('success')}, function(){ console.log('error')});
-        //mediaRefresh.scanMedia.saveImageToGallery(entry.toURL(),function(){ console.log('success')}, function(){ console.log('error')});
-        // refreshMedia.refresh(path);
-      // refreshMedia.refresh(path); // Refresh the image gallery
+        FullScreenImage.showImageURL(path);
     },
     function(error) {
         console.log(JSON.stringify(error));
-      // console.log(error.source);
-      // console.log(error.target);
-      // console.log(error.code);
     },
     false,
     {
@@ -356,104 +315,6 @@ window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, function (fileSystem) {
   );
 
 });
-
-// var canvas, context, imageDataUrl, imageData;
-// var success = function(msg){
-//     console.info(msg);
-// };
-
-// var error = function(err){
-//     console.error(err);
-// };
-//     var img = new Image();
-//     img.onload = function() {
-//         canvas = document.createElement('canvas');
-//         canvas.width = img.width;
-//         canvas.height = img.height;
-//         context = canvas.getContext('2d');
-//         context.drawImage(img, 0, 0);
-//         try {
-//             imageDataUrl = canvas.toDataURL('image/jpeg', 1.0);
-//             imageData = imageDataUrl.replace(/data:image\/jpeg;base64,/, '');
-//             // cordova.exec(
-//             //     success,
-//             //     error,
-//             //     'Canvas2ImagePlugin',
-//             //     'saveImageDataToLibrary',
-//             //     [imageData]
-//             // );
-//                 canvas2ImagePlugin.saveImageDataToLibrary(
-//                 function(msg){
-//                     console.log(msg);
-//                 }, 
-//                 function(err){
-//                     console.log(err);
-//                 }, 
-//                 canvas
-//                 );
-//         }
-//         catch(e) {
-//             // console.log('error');
-//             console.log(e.message);
-//             // error(e.message);
-//         }
-//     };
-//     try {
-//         img.src = url;
-//     }
-//     catch(e) {
-//         console.log(e.message);
-//         // error(e.message);
-//     }
-    }
-
-
-    function readBinaryFile(fileEntry) {
-    fileEntry.file(function (file) {
-        var reader = new FileReader();
-
-        reader.onloadend = function() {
-
-            console.log("Successful file read: " + this.result);
-            // displayFileData(fileEntry.fullPath + ": " + this.result);
-
-            var blob = new Blob([new Uint8Array(this.result)], { type: "image/png" });
-            //displayImage(blob);
-        };
-
-        reader.readAsArrayBuffer(file);
-
-    }, onErrorReadFile);
-}
-
-    function onDirectorySuccess(parent) {
-        // Directory created successfuly
-    }
-
-    function onDirectoryFail(error) {
-        //Error while creating directory
-        alert("Unable to create new directory: " + error.code);
-
-    }
-
-    function fileSystemFail(evt) {
-        //Unable to access file system
-        alert(evt.target.error.code);
-    }
-// }
-
-function filetransfer(download_link, fp) {
-    var fileTransfer = new FileTransfer();
-    // File download function with URL and local path
-    fileTransfer.download(download_link, fp,
-        function(entry) {
-            alert("download complete: " + entry.fullPath);
-        },
-        function(error) {
-            //Download abort errors or download failed errors
-            alert("download error source " + error.source);
-        }
-    );
 }
 
 //------------------notes functions end----------------------------------------------------------------------//
