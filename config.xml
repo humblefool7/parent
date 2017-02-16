@@ -30,10 +30,11 @@
     <plugin name="cordova-plugin-statusbar" source="npm" spec="~2.1.2" />
     <plugin name="cordova-plugin-vibration" source="npm" spec="~2.1.0" />
     <plugin name="cordova-plugin-whitelist" source="npm" spec="~1.2.1" />
+        <plugin name="cordova-plugin-fileopener" source="npm" spec="~1.0.5" />
 <!--     <plugin spec="https://github.com/devgeeks/Canvas2ImagePlugin.git" source="git" /> -->
-    <gap:plugin name="cordova-plugin-fileopener" version="1.0.9" source="npm"/>
-    
-    <plugin spec="https://github.com/sbahal/external-app-launcher.git" source="git" />
+    <gap:plugin name="cordova-plugin-fileopener" version="1.0.5" source="npm"/>
+
+<!--     <plugin spec="https://github.com/sbahal/external-app-launcher.git" source="git" /> -->
 <!--     <plugin spec="https://github.com/philipp-at-greenqloud/pluginRefreshMedia.git" source="git" /> -->
 <!--     <gap:plugin name="cordova-plugin-refresh-gallery" version="1.0.9" source="npm"/> -->
 <!--         <plugin name="com.guinatal.refreshgallery" source="npm" spec="~1.2.1" /> -->
