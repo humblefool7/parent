@@ -307,6 +307,7 @@ window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, function (fileSystem) {
 
 // // window.cordova.plugins.FileOpener.canOpenFile("http://www.website.com/file.pdf", onSuccess, onError);
 // window.cordova.plugins.FileOpener.openFile(path, onSuccess, onError);
+        myPhotoBrowser.close();
         refreshMedia.refresh(path);
         myApp.addNotification({
         message: 'Download Complete',
