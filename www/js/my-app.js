@@ -321,10 +321,12 @@ window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, function (fileSystem) {
   var fileTransfer = new FileTransfer();
   var uri = encodeURI(url);
   console.log(JSON.stringify(fileSystem.root));
+  console.log(fileSystem.root.toURL());
   // var path = fileSystem.root.toURL() + "appName/example.jpg";
-  var path = "/storage/emulated/0/Parent/example.jpg"
+  // var path = "/storage/emulated/0/Parent/example.jpg"
+  var path = "file:///sdcard/"+"School/example.jpg";
   // var path = "file://data/user/0/"+"nishant/example.jpg"
-  // console.log(path);
+  console.log(path);
 
   fileTransfer.download(
     uri,
