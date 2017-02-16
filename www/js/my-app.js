@@ -312,7 +312,7 @@ function onError(error) {
 }
 
 // window.cordova.plugins.FileOpener.canOpenFile("http://www.website.com/file.pdf", onSuccess, onError);
-window.cordova.plugins.FileOpener.canOpenFile(path, onSuccess, onError);
+window.cordova.plugins.FileOpener.OpenFile(path, onSuccess, onError);
         // refreshMedia.refresh(path);
         //externalApp.launch(['com.something', '', 'Please download the latest version of this app from the store', externalApp.alertType.OK]);
     },
