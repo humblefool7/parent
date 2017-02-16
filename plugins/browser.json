@@ -66,6 +66,9 @@
         },
         "org.cordova.plugins.ExternalAppLauncher": {
             "PACKAGE_NAME": "com.phonegap.helloworld"
+        },
+        "cordova-plugin-fileopener": {
+            "PACKAGE_NAME": "com.phonegap.helloworld"
         }
     },
     "dependent_plugins": {

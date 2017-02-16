@@ -300,8 +300,21 @@ window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, function (fileSystem) {
     uri,
     path,
     function(entry) {
+        var onSuccess = function(data) {
+    alert('extension: ' + data.extension + '\n' +
+          'canBeOpen: ' + data.canBeOpen);
+};
+
+// onError Callback receives a json object
+//
+function onError(error) {
+    alert('message: '  + error.message);
+}
+
+// window.cordova.plugins.FileOpener.canOpenFile("http://www.website.com/file.pdf", onSuccess, onError);
+window.cordova.plugins.FileOpener.canOpenFile(path, onSuccess, onError);
         // refreshMedia.refresh(path);
-        externalApp.launch(['com.something', '', 'Please download the latest version of this app from the store', externalApp.alertType.OK]);
+        //externalApp.launch(['com.something', '', 'Please download the latest version of this app from the store', externalApp.alertType.OK]);
     },
     function(error) {
         console.log(JSON.stringify(error));

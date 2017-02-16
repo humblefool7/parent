@@ -87,6 +87,9 @@
         },
         "org.cordova.plugins.ExternalAppLauncher": {
             "PACKAGE_NAME": "com.phonegap.helloworld"
+        },
+        "cordova-plugin-fileopener": {
+            "PACKAGE_NAME": "com.phonegap.helloworld"
         }
     },
     "dependent_plugins": {},
@@ -693,6 +696,14 @@
                 "navigator.notification",
                 "navigator"
             ]
+        },
+        {
+            "file": "plugins/cordova-plugin-fileopener/www/FileOpener.js",
+            "id": "cordova-plugin-fileopener.FileOpener",
+            "pluginId": "cordova-plugin-fileopener",
+            "clobbers": [
+                "cordova.plugins.FileOpener"
+            ]
         }
     ],
     "plugin_metadata": {
@@ -717,6 +728,7 @@
         "cordova-plugin-statusbar": "2.1.3",
         "cordova-plugin-vibration": "2.1.3",
         "cordova-plugin-whitelist": "1.2.2",
-        "org.cordova.plugins.ExternalAppLauncher": "1.0.0"
+        "org.cordova.plugins.ExternalAppLauncher": "1.0.0",
+        "cordova-plugin-fileopener": "1.0.5"
     }
 }
