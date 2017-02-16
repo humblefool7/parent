@@ -333,7 +333,8 @@ window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, function (fileSystem) {
     path,
     function(entry) {
         // readBinaryFile(entry);
-        console.log("download complete: " + entry.toURL());
+        // console.log("download complete: " + entry.toURL());
+        refreshMedia.refresh(path);
         //refreshMedia.refresh(entry.toURL());
         //cordova.plugins.imagesaver.saveImageToGallery(entry.toURL(),function(){ console.log('success')}, function(){ console.log('error')});
         //mediaRefresh.scanMedia.saveImageToGallery(entry.toURL(),function(){ console.log('success')}, function(){ console.log('error')});
