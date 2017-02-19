@@ -181,7 +181,6 @@ var mainView = myApp.addView('.view-main', {
                   image: image,
                   currency: 'INR',
                   key: 'rzp_test_WK0VgHaNtpBThp',
-                  order_id: order_id,
                   amount: amount,
                   name: name,
                   prefill: {
@@ -207,6 +206,7 @@ var mainView = myApp.addView('.view-main', {
                 RazorpayCheckout.on('payment.success', successCallback)
                 RazorpayCheckout.on('payment.cancel', cancelCallback)
                 RazorpayCheckout.open(options)
+                // 342964820431306
     }
 
     $$('.js-pay-fee').on('click', function (e){
@@ -216,7 +216,10 @@ var mainView = myApp.addView('.view-main', {
             console.log(amount);
             console.log(enrollment_number);
             console.log(student_id);
-            payFunction(amount*100,'School Fees','http://www.clker.com/cliparts/Z/F/Y/E/X/y/logo-school-md.png',enrollment_number,window.localStorage.getItem("school_name"),window.localStorage.getItem("parent_name"),window.localStorage.getItem("parent_phone"));
+            if(enrollment_number != '' && amount != '')
+                payFunction(amount*100,'School Fees','http://www.clker.com/cliparts/Z/F/Y/E/X/y/logo-school-md.png',enrollment_number,window.localStorage.getItem("school_name"),window.localStorage.getItem("parent_name"),window.localStorage.getItem("parent_phone"));
+            else
+                myApp.alert('Please fill in the enrollment number and the amount','Error !');
             // console.log('usoads');
             // something();
     });
