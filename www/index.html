@@ -294,12 +294,12 @@
     // }, false);
     function onDeviceReady(){
        document.addEventListener("backbutton", function(e){
-        if(window.location.hash=='#home'){
-            e.preventDefault();
-            navigator.app.exitApp();
-        } else {
+        // if(window.location.hash=='#home'){
+        //     e.preventDefault();
+        //     navigator.app.exitApp();
+        // } else {
             navigator.app.backHistory()
-        }
+        // }
     }, false);
     }
     document.addEventListener("deviceready", onDeviceReady, false);
