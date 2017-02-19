@@ -29,6 +29,14 @@ var myApp = new Framework7({
                     },
                 ]
         },
+        'page:fees':{
+            student: [
+                    {
+                        "student_id": "1",
+                        "student_name": "dummy",
+                    },
+                ]
+        },
         'page:notes':{
             class_id: '',
             subjects: [
@@ -166,23 +174,23 @@ var mainView = myApp.addView('.view-main', {
        //      var subject_id = $$("#js-notes-subject").val();
        //      createNotesTimeline(window.localStorage.getItem("student_selected"),subject_id,class_id);
        // })
-       var something = function(){
-                console.log('bla bla');
+       var payFunction = function(amount,description,image,order_id,name,customer_name,customer_contact){
+                // console.log('bla bla');
                 var options = {
-                  description: 'Credits towards consultation',
-                  image: 'https://i.imgur.com/3g7nmJC.png',
+                  description: description,
+                  image: image,
                   currency: 'INR',
                   key: 'rzp_test_WK0VgHaNtpBThp',
-                  order_id: 'something',
-                  amount: '5000',
-                  name: 'foo',
+                  order_id: order_id,
+                  amount: amount,
+                  name: name,
                   prefill: {
-                    email: 'pranav@razorpay.com',
-                    contact: '8879524924',
-                    name: 'Pranav Gupta'
+                    email: '',
+                    contact: customer_contact,
+                    name: customer_name
                   },
                   theme: {
-                    color: '#F37254'
+                    color: '#3f51b5'
                   }
                 }
 
@@ -193,7 +201,7 @@ var mainView = myApp.addView('.view-main', {
                 }
 
                 var cancelCallback = function(error) {
-                  alert(error.description + ' (Error '+error.code+')')
+                  // alert(error.description + ' (Error '+error.code+')')
                 }
 
                 RazorpayCheckout.on('payment.success', successCallback)
@@ -202,8 +210,15 @@ var mainView = myApp.addView('.view-main', {
     }
 
     $$('.js-pay-fee').on('click', function (e){
-            console.log('usoads');
-            something();
+            var student_id = $$('.student-fees-select').val();
+            var enrollment_number = $$('.js-enrollment-number').val();
+            var amount = $$('.js-fee-amount').val();
+            console.log(amount);
+            console.log(enrollment_number);
+            console.log(student_id);
+            payFunction(amount*100,'School Fees','http://www.clker.com/cliparts/Z/F/Y/E/X/y/logo-school-md.png',enrollment_number,window.localStorage.getItem("school_name"),window.localStorage.getItem("parent_name"),window.localStorage.getItem("parent_phone"));
+            // console.log('usoads');
+            // something();
     });
 
     // something();
@@ -227,6 +242,7 @@ var mainView = myApp.addView('.view-main', {
             var students = JSON.parse(window.localStorage.getItem("students"));
 
             myApp.template7Data['page:index']['student'] = students;
+            myApp.template7Data['page:fees']['student'] = students;
             if(window.localStorage.getItem("student_selected") == ''){
                 setStudentData(students[0]["student_id"]);
                 window.localStorage.setItem("student_selected",students[0]["student_id"]);
@@ -276,6 +292,7 @@ function setStudentData(student_id){
             }
             // console.log(subjects);
             myApp.template7Data['page:notes']['class_id'] = students[index]["class_id"];
+            window.localStorage.setItem("school_name",students[index]["school_name"])
             myApp.template7Data['page:notes']['subjects'] = subjects;
 }
 
@@ -325,6 +342,8 @@ function sendOtp(phone){
                 $$('.js-generate-otp').show();
                 window.localStorage.clear();
                 window.localStorage.setItem("parent_id",e.result.parent_id);
+                window.localStorage.setItem("parent_name",e.result.parent_name);
+                window.localStorage.setItem("parent_phone",e.result.parent_phone);
                 window.localStorage.setItem("students",JSON.stringify(e.result.students));
 
                 // window.localStorage.setItem("subjects",JSON.stringify(e.result.subjects));

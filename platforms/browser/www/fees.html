@@ -22,27 +22,53 @@
           </ul>
     </div>
   </div>
-      <div class="page-content" style="margin-top: 40px;">
-      <div class="list-block">
+      <div class="page-content" style="">
+      <div class="list-block js-fees-details">
       <ul>
       <li>
       <div class="item-content">
-        <div class="item-media"><i class="icon f7-icons">persons</i></div>
+<!--         <div class="item-media"><i class="icon f7-icons">Select child</i></div> -->
         <div class="item-inner">
-          <div class="item-title label">Gender</div>
+          <div class="item-title label">Name</div>
           <div class="item-input">
-            <select>
-              <option>Male</option>
-              <option>Female</option>
-            </select>
+                  <select name="students" class="student-fees-select">
+                          {{#each student}}
+                          <option value="{{student_id}}">{{student_name}}</option>
+                          {{/each}}
+                  </select>
           </div>
         </div>
       </div>
     </li>
+          <li>
+      <div class="item-content">
+        <div class="item-inner">
+          <div class="item-title label">Enrollment Number</div>
+          <div class="item-input">
+            <input type="text" placeholder="Enrollment Number" class="js-enrollment-number">
+          </div>
+        </div>
+      </div>
+    </li>
+    <li>
+      <div class="item-content">
+        <div class="item-inner">
+          <div class="item-title label">Enter Fees</div>
+          <div class="item-input">
+            <input type="number" placeholder="Enter amount (in Rs.)" class="js-fee-amount">
+          </div>
+        </div>
+      </div>
+    </li>
+    <li>
+                    <div class="content-block">
+                          <a href="#" class="button button-big button-fill button-raised js-pay-fee">Pay</a>
+                    </div>
+    </li>
     </ul>
     </div>
-      <div class="timeline" id="js-timetable-schedule" style="margin-left:-40px;padding-bottom: 25px">
-      <button class="js-pay-fee">Something</a>
+      <div class="js-fees-success">
+<!--       <button class="js-pay-fee">Something</a> -->
       </div>
   </div>
   </div>
