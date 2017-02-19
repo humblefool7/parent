@@ -1,0 +1,84 @@
+<div class="pages">
+  <div data-page="note-creation" class="page navbar-fixed">
+  <div class="navbar">
+  <div class="navbar-inner">
+    <div class="left sliding"><a href="notes.html" class="link"> <i class="icon icon-back"></i></a></div>
+    <div class="center sliding">Add a curricular</div>
+    <div class="right"><a href="#" class="link icon-only open-panel"> <i class="icon icon-bars"></i></a></div>
+    </div>
+  </div>
+  <div class="page-content">
+      <div class="content-block">
+        <div class="content-block-inner">
+          You can either browse photos from the gallery or take a picture right now using camera by selecting any one of the option below.
+        </div>
+        <div class="content-block-title">Share your notes</div>
+          <div class="list-block media-list js-notes-selector">
+              <ul>
+              <li>
+                  <a onclick="getImageFromCamera();" class="item-link item-content">
+                    <div class="item-media"><img src="images/camera.png" width="80"></div>
+                    <div class="item-inner">
+                      <div class="item-title-row">
+                              <div class="item-title">Click an image</div>
+                      </div>
+<!--                           <div class="item-subtitle">Take a picture</div> -->
+                          <div class="item-text">Use the device camera to take the picture of the notes that you want to share</div>
+                      </div>
+                  </a>
+              </li>
+              <li>
+                  <a onclick="getImage();" class="item-link item-content">
+                    <div class="item-media"><img src="images/gallery.png" width="80"></div>
+                    <div class="item-inner">
+                      <div class="item-title-row">
+                              <div class="item-title">Browse from gallery</div>
+                      </div>
+                          <div class="item-text">Select images from the device gallery</div>
+                      </div>
+                  </a>
+              </li>
+              </ul>
+        </div>
+      </div>
+      <div class="content-block" id="js-notes-loaded">
+      </div>
+<!--       style="display: none" -->
+      <div class="content-block" id="js-notes-operation" style="display: none">
+            <div class="list-block">
+                      <ul>
+                        <li class="align-top">      
+                          <div class="item-content">
+                          <div class="item-media"><i class="icon material-icons">chat_bubble_outline</i></div>
+                            <div class="item-inner">
+                            <div class="item-title floating-label">Title</div>
+                              <div class="item-input">
+                                  <textarea class="resizable" id="js-notes-title"></textarea>
+                              </div>
+                            </div>
+                          </div>
+                        </li>
+                      </ul>
+                </div>
+                <div class="list-block" style="display: none">
+                <ul>
+                  <li class="align-top">             
+                    <div class="item-content">
+                    <div class="item-media"><i class="icon material-icons">chat_bubble_outline</i></div>
+                      <div class="item-inner">
+                      <div class="item-title floating-label">Description(optional)</div>
+                        <div class="item-input">
+                            <textarea class="resizable" id="js-notes-description"></textarea>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+                </div>
+          <p> <a href="#" class="button color-red button-round" id="js-browse-notes-again"><i class="material-icons">settings_backup_restore</i>  Browse back again</a></p>
+          <p> <a href="#" class="button button-fill button-big" id="js-upload-notes">Upload</a></p>
+      </div>
+
+  </div>
+  </div>
+</div>

@@ -1,0 +1,33 @@
+<div class="pages">
+  <div data-page="notes" class="page navbar-fixed">
+  <div class="navbar">
+  <div class="navbar-inner">
+    <div class="left sliding"><a href="index.html" class="link"> <i class="icon icon-back"></i></a></div>
+    <div class="center sliding">Curricular</div>
+    <div class="right"><a href="#" class="link icon-only open-panel"> <i class="icon icon-bars"></i></a></div>
+    </div>
+        <div class="list-block" style="margin-top: 56px;background-color:#fafbfc;color: black;">
+          <ul>
+              <li><a href="#" class="item-link smart-select" data-open-in="picker">
+                  <select name="subjects" id="js-notes-subject" data-class={{class_id}}>
+                    {{#each subjects}}
+                    <option value="{{subject_id}}">{{subject_name}}</option>
+                    {{/each}}
+                  </select>
+                <div class="item-content">
+                    <div class="item-inner">
+                        <div class="item-title">Subject</div>
+                    </div>
+              </div></a></li>
+          </ul>
+    </div>
+  </div>
+<!--   <a href="note-creation.html" class="floating-button">
+    <i class="icon icon-plus"></i>
+  </a> -->
+  <div class="page-content" style="margin-top: 40px;">
+      <div class="timeline" id="js-notes-timeline" style="padding-left:0px;padding-bottom: 25px">
+      </div>
+  </div>
+</div>
+</div>
