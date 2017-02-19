@@ -29,7 +29,7 @@
     <link rel="stylesheet" type="text/css" href="css/index.css" />
   <!--   <title>Convent School Appplication</title> -->
 </head>
-  <body class="theme-lightblue">
+  <body class="theme-indigo">
     <div class="login-screen modal-in">
       <!-- Default view-page layout -->
       <div class="view">
@@ -112,6 +112,12 @@
             <div class="item-content">
             <div class="item-inner">
             <div class="item-title">Timetable</div>
+            </div>
+            </div></a></li>
+            <li style=""><a href="fees.html" class="item-link close-panel">
+            <div class="item-content">
+            <div class="item-inner">
+            <div class="item-title">Pay Fees</div>
             </div>
             </div></a></li>
             <li style=""><a href="#" class="item-link js-logout-parent">
@@ -281,6 +287,21 @@
     </script>
     <script type="text/javascript" src="cordova.js"></script>
     <script type="text/javascript">
+    // document.addEventListener("backbutton", function(e){
+    //       e.preventDefault();
+    //       console.log('something');
+    //       navigator.app.backHistory()
+    // }, false);
+    function onDeviceReady(){
+       document.addEventListener("backbutton", function(e){
+        if(window.location.hash=='#home'){
+            e.preventDefault();
+            navigator.app.exitApp();
+        } else {
+            navigator.app.backHistory()
+        }
+    }, false);
+    }
     document.addEventListener("deviceready", onDeviceReady, false);
     </script>
     <script type="text/javascript">
@@ -288,21 +309,18 @@
     <!-- Path to Framework7 Library JS-->
     <script type="text/javascript" src="dist/js/framework7.min.js"></script>
     <script type="text/template7" id="attendancetemplate">
-      {{#each chart}}
-        <li id="{{student_id}}">
-            <div class="item-inner"> 
-              <div class="item-title">{{student_name}}</div>
-                  <label class="label-checkbox item-content">
-                    {{#if attendance}}
-                      <input type="checkbox" name="{{student_name}}" value="{{student_id}}" checked="checked"/>
-                      <div class="item-media"><i class="icon icon-form-checkbox"></i></div>
-                    {{else}}
-                      <input type="checkbox" name="{{student_name}}" value="{{student_id}}"/>
-                      <div class="item-media"><i class="icon icon-form-checkbox"></i></div>
+      {{#each attendance}}
+                  <li class="item-content">
+<!--                   <div class="item-media"><i class="icon icon-f7"></i></div> -->
+                  <div class="item-inner">
+                  <div class="item-title">{{date}}</div>
+                  {{#if boolean_attendance}}
+                            <div class="item-after">{{attendance}}</div>
+                  {{else}}
+                            <div class="item-after"><b>{{attendance}}</b></div>
                   {{/if}}
-                  </label>
-            </div>
-        </li> 
+                  </div>
+                  </li>
         {{/each chart}}
     </script>
 <!--     <script type="text/template7" id="performancetemplate">
@@ -368,27 +386,26 @@
     {{/each slot}}
     </script>
     <script type="text/template7" id="examtemplate">
-    {{#each exam}}
-          <div class="card">
-          <div class="card-header">
-            <a class="left sliding" href="marks.html?id={{id}}&status=preview">{{exam_name}}</a>
-            <!-- <div class="right sliding">Delete</div> -->
-          </div>
-          <div class="card-content">
-          <div class="card-content-inner">
-                <p>Highest Marks : {{highest_marks}}</p>
-                <p>Exam date : {{exam_date}}</p>
-                <p class="color-gray">Maximum Marks : {{maximum_marks}}</p>
-                <p class="color-gray">Posted on : {{date}}</p>
-          </div>
-          </div>
-          <div class="card-footer">
-            <div class="row" style="width:100%">
-                  <div class="col-50"><a href="marks.html?id={{id}}&status=update" class="button">Update</a></div>
-                  <div class="col-50"><a onclick="deleteexam({{id}})" class="button">Delete</a></div>
-            </div>
-          </div>
-          </div>
+    {{#each exam}}  
+                          <div class="card" style="margin-bottom: 15px;">
+                          <div class="card-header">
+                          {{#if exam_over}}
+                                  <strike><b>{{subject_name}} {{exam_name}}</b></strike>
+                          {{else}}
+                                  <b>{{subject_name}} {{exam_name}}</b>
+                          {{/if}}
+                          <p>({{maximum_marks}} Marks)</p>
+                          </div>
+                          <div class="card-footer">
+                          <div class="row" style="width:100%">
+                          {{#if exam_over}}
+                                <div class="col-100"><strike><b>{{exam_date}}</b></strike></div>
+                          {{else}}
+                                <div class="col-100"><b>{{exam_date}}</b></div>
+                          {{/if}}
+                          </div>
+                          </div>
+                          </div>
     {{/each exam}}
     </script>
     <script type="text/template7" id="notestimeline">

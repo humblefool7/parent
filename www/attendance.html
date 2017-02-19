@@ -7,33 +7,64 @@
     <div class="right"><a href="#" class="link icon-only open-panel"> <i class="icon icon-bars"></i></a></div>
   </div>
       <div class="list-block" style="margin-top: 56px;background-color:#fafbfc;color: black;">
-            <ul>
-                <li><a href="#" class="item-link smart-select" data-open-in="picker">
-                    <select name="class" id="js-attendance-class">
-                      {{#each work}}
-                      <option value="{{id}}" data-class="{{class_id}}" data-subject="{{subject_id}}">{{class_name}}</option>
-                      {{/each}}
-                    </select>
-                  <div class="item-content">
-                      <div class="item-inner">
-                          <div class="item-title">Class</div>
-                      </div>
-                </div></a></li>
-            </ul>
-      </div>
+                <ul>
+                    <li>
+                    <!-- <a href="#" class="item-link smart-select" data-open-in="picker">
+                        <select name="class" id="js-exam-class">
+                          {{#each work}}
+                          <option value="{{id}}" data-class="{{class_id}}" data-subject="{{subject_id}}">{{class_name}} {{subject_name}}</option>
+                          {{/each}}
+                        </select> -->
+                      <div class="item-content">
+                          <div class="item-inner">
+                              <div class="item-title">Choose Start and End Dates</div>
+                          </div>
+                    </div>
+<!--                     </a></li> -->
+                </ul>
+        </div>
   </div>
     <div class="page-content" style="margin-top: 40px;">
-<!--           <div class="content-block-title" id="js-attendance-update"></div> -->
-            <div class="content-block-title">Untick the students who are absent</div>
-          <!-- <p>Untick the students who are absent.</p> -->
-          <div class="content-block">
-              <div class="list-block">
-                <ul id="js-attendance-chart">
-                </ul>
-                <p><a href="#" class="button button-fill button-big color-red js-update-attendance-button" style="display: none">Update</a></p>
-                <p><a href="#" class="button button-big button-fill js-add-attendance-button" style="display: none">Upload</a></p> 
-              </div>
+<!--     <div class="content-block-title"><b>Start date</b></div> -->
+            <div class="list-block">
+            <ul>
+              <li>
+                <div class="item-content">
+                  <div class="item-inner">
+                    <div class="item-input">
+                    <div class="item-title label">From</div>
+                      <input type="text" placeholder="Click here to select start date" readonly id="start_date">
+                    </div>
+                  </div>
+                </div>
+              </li>
+            </ul>
+            <ul>
+              <li>
+                <div class="item-content">
+                  <div class="item-inner">
+                    <div class="item-input">
+                    <div class="item-title label">To</div>
+                      <input type="text" placeholder="Click here to select end date" readonly id="end_date">
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li>
+                                  <div class="content-block">
+                                        <a href="#" class="button button-big button-fill button-raised js-fetch-attendance">Load</a>
+                                  </div>
+              </li>
+            </ul>
           </div>
+          <div class="list-block">
+              <div class="list-group">
+              <ul>
+                  <li class="list-group-title">Attendance</li>
+              </ul>
+              <ul class="js-attendance-chart">
+              </ul>
+              </div>
+              </div>
   </div>
-</div>
 </div>

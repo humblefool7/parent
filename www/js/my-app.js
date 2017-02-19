@@ -89,12 +89,74 @@ var mainView = myApp.addView('.view-main', {
         });
     });
 
+    myApp.onPageInit('attendance', function (page) {
+
+        var calendarDateFormat1 = myApp.calendar({
+                input: '#start_date',
+                dateFormat: 'dd-M-yyyy'
+        });
+        var calendarDateFormat2 = myApp.calendar({
+                input: '#end_date',
+                dateFormat: 'dd-M-yyyy'
+        }); 
+
+        var d = new Date();
+        end_date = new Date(d.getTime() - (d.getTimezoneOffset() * 60000)).toISOString().split('T')[0];
+        d.setMonth(d.getMonth() - 1);
+        start_date = new Date(d.getTime() - (d.getTimezoneOffset() * 60000)).toISOString().split('T')[0];
+
+        // console.log(end_date);
+        // console.log(start_date);
+
+        calendarDateFormat1.setValue([start_date]);
+        calendarDateFormat2.setValue([end_date]);
+
+        createAttendanceTimeline(window.localStorage.getItem("student_selected"),start_date,end_date);
+
+        $$('.js-fetch-attendance').on('click', function (e) {
+            var start_date = new Date($$('#start_date').val());
+            var end_date = new Date($$('#end_date').val());
+            if(new Date(start_date) > new Date(end_date))
+                myApp.alert('Start date should be less than the End date','Invalid dates!');
+            else{
+                start_date = new Date(start_date.getTime() - (start_date.getTimezoneOffset() * 60000)).toISOString().split('T')[0];
+                end_date = new Date(end_date.getTime() - (end_date.getTimezoneOffset() * 60000)).toISOString().split('T')[0];
+                createAttendanceTimeline(window.localStorage.getItem("student_selected"),start_date,end_date);
+            }
+        });
+
+
+
+            // console.log($$('#js-notes-subject').val()+'notes class');
+       //      var class_id = $$("#js-notes-subject").attr("data-class");
+       //      var subject_id = $$("#js-notes-subject").val();
+       //      createNotesTimeline(window.localStorage.getItem("student_selected"),subject_id,class_id);
+
+       //  $$('#js-notes-subject').on('change', function() {
+       //      var class_id = $$("#js-notes-subject").attr("data-class");
+       //      var subject_id = $$("#js-notes-subject").val();
+       //      createNotesTimeline(window.localStorage.getItem("student_selected"),subject_id,class_id);
+       // })
+
+    }).trigger();
+
     myApp.onPageInit('notes', function (page) {
             // console.log($$('#js-notes-subject').val()+'notes class');
             var class_id = $$("#js-notes-subject").attr("data-class");
             var subject_id = $$("#js-notes-subject").val();
             createNotesTimeline(window.localStorage.getItem("student_selected"),subject_id,class_id);
 
+        $$('#js-notes-subject').on('change', function() {
+            var class_id = $$("#js-notes-subject").attr("data-class");
+            var subject_id = $$("#js-notes-subject").val();
+            createNotesTimeline(window.localStorage.getItem("student_selected"),subject_id,class_id);
+       })
+
+    }).trigger();
+
+
+    myApp.onPageInit('exam', function (page) {
+            createExamTimeline(window.localStorage.getItem("student_selected"));
     }).trigger();
 
     myApp.onPageInit('performance', function (page) {
@@ -143,7 +205,7 @@ $$(document).on('ajaxStart', function (e) {
 });
 
 function setStudentData(student_id){
-            console.log('setting student data for'+student_id);
+            // console.log('setting student data for'+student_id);
             // $$('.students-select').val(student_id).change();
             // console.log(student_id);
             var students = JSON.parse(window.localStorage.getItem("students"));
@@ -199,7 +261,6 @@ function sendOtp(phone){
             dataType: "json",
             timeout:50000,
             success: function(e) {
-                console.log(e);
                 $$('.js-phone-field').show();
                 $$('.js-otp-field').hide();
                 $$('.js-login-go-back').hide();
@@ -227,6 +288,84 @@ function sendOtp(phone){
 
 //------------------ app functionalities end----------------------------------------------------------------------//
 
+//------------------ exam functionalities start----------------------------------------------------------------------//
+
+function createExamTimeline(student_id){
+    if(student_id == undefined)
+        return;
+    var url = "http://139.59.34.36/master/parentapi/examchart?student_id=" + parseInt(student_id);
+    $$.ajax({
+        type: "GET",
+        beforeSend: function(e) {
+            e.setRequestHeader("Accept", "application/json"), 
+            e.setRequestHeader("apikey", "app")
+        },
+        url: url,
+        dataType: "json",
+        timeout:50000,
+        success: function(e) {
+            //myApp.template7Data['page:homework']['today_homework'] = homework;
+            // console.log(e.result);
+            var template = $$('#examtemplate').html();
+            var compiledTemplate = Template7.compile(template);
+            var html = compiledTemplate({exam:e.result.exams});
+            $$('.js-exam-chart').html(html);
+            // console.log((e.result.notes).length);
+            if((e.result.exams).length == 0)
+                $$('.js-exam-chart').html('<p>There are no exams scheduled by now from your class teacher.</p>');
+            // myApp.addNotification({
+            //     message: 'Thank you teacher,your homework has been uploaded :)',
+            // });
+        },
+        error: function(xhr, status) {
+            if(status == 'timeout')
+                myApp.alert('Please check your internet connection','Internet Down!');
+        }
+      })
+}
+
+//------------------ exam functionalities end----------------------------------------------------------------------//
+
+
+//------------------ attendance functionalities start----------------------------------------------------------------------//
+
+function createAttendanceTimeline(student_id,start_date,end_date){
+    if(student_id == undefined)
+        return;
+    var url = "http://139.59.34.36/master/parentapi/attendancechart?student_id=" + parseInt(student_id)+"&start_date="+start_date+"&end_date="+end_date;
+    $$.ajax({
+        type: "GET",
+        beforeSend: function(e) {
+            e.setRequestHeader("Accept", "application/json"), 
+            e.setRequestHeader("apikey", "app")
+        },
+        url: url,
+        dataType: "json",
+        timeout:50000,
+        success: function(e) {
+            // console.log(e.result.exams);
+            //myApp.template7Data['page:homework']['today_homework'] = homework;
+            // console.log(e.result);
+            var template = $$('#attendancetemplate').html();
+            var compiledTemplate = Template7.compile(template);
+            var html = compiledTemplate({attendance:e.result.attendance});
+            $$('.js-attendance-chart').html(html);
+            // console.log((e.result.notes).length);
+            if((e.result.attendance).length == 0)
+                $$('.js-exam-chart').html('<p>There is no attendance uploaded by now by your class teacher.</p>');
+            // myApp.addNotification({
+            //     message: 'Thank you teacher,your homework has been uploaded :)',
+            // });
+        },
+        error: function(xhr, status) {
+            if(status == 'timeout')
+                myApp.alert('Please check your internet connection','Internet Down!');
+        }
+      })
+}
+
+//------------------ attendance functionalities end----------------------------------------------------------------------//
+
 //------------------ notes functionalities start----------------------------------------------------------------------//
 
 function createNotesTimeline(student_id,subject_id,class_id){
@@ -249,7 +388,6 @@ function createNotesTimeline(student_id,subject_id,class_id){
             var compiledTemplate = Template7.compile(template);
             var html = compiledTemplate(e.result);
             $$('#js-notes-timeline').html(html);
-            console.log((e.result.notes).length);
             if((e.result.notes).length == 0)
                 $$('#js-notes-timeline').html('<p>There are no curriculars or notes availaile by now from your class teacher.</p>');
             // myApp.addNotification({
@@ -355,7 +493,6 @@ window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, function (fileSystem) {
         dataType: "json",
         timeout:50000,
         success: function(e) {
-            console.log(e);
             generatePerformanceScreen(e);
             var template = $$('#examscorechart').html();
             var compiledTemplate = Template7.compile(template);
