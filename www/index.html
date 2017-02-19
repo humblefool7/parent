@@ -298,7 +298,9 @@
         //     e.preventDefault();
         //     navigator.app.exitApp();
         // } else {
-            navigator.app.backHistory()
+            history.go(-1);
+            navigator.app.backHistory();
+            // navigator.app.backHistory()
         // }
     }, false);
     }
