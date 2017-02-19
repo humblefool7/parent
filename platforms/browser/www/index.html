@@ -294,15 +294,7 @@
     // }, false);
     function onDeviceReady(){
        document.addEventListener("backbutton", function(e){
-        // if(window.location.hash=='#home'){
-        //     e.preventDefault();
-        //     navigator.app.exitApp();
-        // } else {
-            alert('yhan to aye');
-            history.go(-1);
             navigator.app.backHistory();
-            // navigator.app.backHistory()
-        // }
     }, false);
     }
     document.addEventListener("deviceready", onDeviceReady, false);
