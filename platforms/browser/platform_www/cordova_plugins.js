@@ -610,6 +610,20 @@ module.exports = [
         "clobbers": [
             "cordova.plugins.FileOpener"
         ]
+    },
+    {
+        "file": "plugins/com.razorpay.cordova/www/RazorpayCheckout.js",
+        "id": "com.razorpay.cordova.RazorpayCheckout",
+        "pluginId": "com.razorpay.cordova",
+        "clobbers": [
+            "RazorpayCheckout"
+        ]
+    },
+    {
+        "file": "plugins/com.razorpay.cordova/src/browser/CheckoutProxy.js",
+        "id": "com.razorpay.cordova.CheckoutProxy",
+        "pluginId": "com.razorpay.cordova",
+        "runs": true
     }
 ];
 module.exports.metadata = 
@@ -637,7 +651,8 @@ module.exports.metadata =
     "cordova-plugin-vibration": "2.1.3",
     "cordova-plugin-whitelist": "1.2.2",
     "org.cordova.plugins.ExternalAppLauncher": "1.0.0",
-    "cordova-plugin-fileopener": "1.0.5"
+    "cordova-plugin-fileopener": "1.0.5",
+    "com.razorpay.cordova": "0.14.0"
 }
 // BOTTOM OF METADATA
 });

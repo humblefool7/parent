@@ -30,15 +30,8 @@
     <plugin name="cordova-plugin-statusbar" source="npm" spec="~2.1.2" />
     <plugin name="cordova-plugin-vibration" source="npm" spec="~2.1.0" />
     <plugin name="cordova-plugin-whitelist" source="npm" spec="~1.2.1" />
-        <plugin name="cordova-plugin-fileopener" source="npm" spec="~1.0.5" />
-    <plugin spec="https://github.com/guinatal/refreshgallery.git" source="git" />
-    <!-- <gap:plugin name="cordova-plugin-fileopener" version="1.0.5" source="npm"/> -->
-
-<!--     <plugin spec="https://github.com/sbahal/external-app-launcher.git" source="git" /> -->
-<!--     <plugin spec="https://github.com/philipp-at-greenqloud/pluginRefreshMedia.git" source="git" /> -->
-<!--     <gap:plugin name="cordova-plugin-refresh-gallery" version="1.0.9" source="npm"/> -->
-<!--         <plugin name="com.guinatal.refreshgallery" source="npm" spec="~1.2.1" /> -->
-<!--      <plugin name="pluginRefreshMedia" source="git" value="com.greenqloud.plugin.PluginRefreshMedia"/> -->
+    <plugin name="cordova-plugin-fileopener" source="npm" spec="~1.0.5" />
+    <plugin source="git" spec="https://github.com/guinatal/refreshgallery.git" />
     <platform name="android">
         <icon density="ldpi" src="www/res/icon/android/drawable-ldpi-icon.png" />
         <icon density="mdpi" src="www/res/icon/android/drawable-mdpi-icon.png" />
@@ -123,4 +116,5 @@
         <allow-intent href="itms:*" />
         <allow-intent href="itms-apps:*" />
     </platform>
+    <plugin name="com.razorpay.cordova" spec="~0.14.0" />
 </widget>

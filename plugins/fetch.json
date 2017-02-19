@@ -183,5 +183,13 @@
         },
         "is_top_level": true,
         "variables": {}
+    },
+    "com.razorpay.cordova": {
+        "source": {
+            "type": "registry",
+            "id": "com.razorpay.cordova"
+        },
+        "is_top_level": true,
+        "variables": {}
     }
 }

@@ -69,6 +69,9 @@
         },
         "cordova-plugin-fileopener": {
             "PACKAGE_NAME": "com.phonegap.helloworld"
+        },
+        "com.razorpay.cordova": {
+            "PACKAGE_NAME": "com.phonegap.helloworld"
         }
     },
     "dependent_plugins": {

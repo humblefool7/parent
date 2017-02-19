@@ -155,6 +155,56 @@ var mainView = myApp.addView('.view-main', {
     }).trigger();
 
 
+    myApp.onPageInit('fees', function (page) {
+            // console.log($$('#js-notes-subject').val()+'notes class');
+/*            var class_id = $$("#js-notes-subject").attr("data-class");
+            var subject_id = $$("#js-notes-subject").val();
+            createNotesTimeline(window.localStorage.getItem("student_selected"),subject_id,class_id);*/
+
+       //  $$('#js-notes-subject').on('change', function() {
+       //      var class_id = $$("#js-notes-subject").attr("data-class");
+       //      var subject_id = $$("#js-notes-subject").val();
+       //      createNotesTimeline(window.localStorage.getItem("student_selected"),subject_id,class_id);
+       // })
+       var something = function(){
+                var options = {
+                  description: 'Credits towards consultation',
+                  image: 'https://i.imgur.com/3g7nmJC.png',
+                  currency: 'INR',
+                  key: 'rzp_test_WK0VgHaNtpBThp',
+                  order_id: 'something',
+                  amount: '5000',
+                  name: 'foo',
+                  prefill: {
+                    email: 'pranav@razorpay.com',
+                    contact: '8879524924',
+                    name: 'Pranav Gupta'
+                  },
+                  theme: {
+                    color: '#F37254'
+                  }
+                }
+
+                var successCallback = function(success) {
+                  alert('payment_id: ' + success.razorpay_payment_id)
+                  var orderId = success.razorpay_order_id
+                  var signature = success.razorpay_signature
+                }
+
+                var cancelCallback = function(error) {
+                  alert(error.description + ' (Error '+error.code+')')
+                }
+
+                RazorpayCheckout.on('payment.success', successCallback)
+                RazorpayCheckout.on('payment.cancel', cancelCallback)
+                RazorpayCheckout.open(options)
+    }
+
+    something();
+
+    }).trigger();
+
+
     myApp.onPageInit('exam', function (page) {
             createExamTimeline(window.localStorage.getItem("student_selected"));
     }).trigger();
