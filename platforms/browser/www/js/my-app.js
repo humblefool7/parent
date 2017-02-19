@@ -167,6 +167,7 @@ var mainView = myApp.addView('.view-main', {
        //      createNotesTimeline(window.localStorage.getItem("student_selected"),subject_id,class_id);
        // })
        var something = function(){
+                console.log('bla bla');
                 var options = {
                   description: 'Credits towards consultation',
                   image: 'https://i.imgur.com/3g7nmJC.png',
@@ -200,7 +201,12 @@ var mainView = myApp.addView('.view-main', {
                 RazorpayCheckout.open(options)
     }
 
-    something();
+    $$('.js-pay-fee').on('click', function (e){
+            console.log('usoads');
+            something();
+    });
+
+    // something();
 
     }).trigger();
 
