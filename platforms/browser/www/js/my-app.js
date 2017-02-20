@@ -444,6 +444,88 @@ function createAttendanceTimeline(student_id,start_date,end_date){
 
 //------------------ attendance functionalities end----------------------------------------------------------------------//
 
+//------------------ classwork functionalities start----------------------------------------------------------------------//
+
+function getHomework(student_id,date){
+    if(student_id == undefined)
+        return;
+    var url = "http://139.59.34.36/master/parentapi/loadhomework?student_id=" + parseInt(student_id)+"&date="+date;
+    $$.ajax({
+        type: "GET",
+        beforeSend: function(e) {
+            e.setRequestHeader("Accept", "application/json"), 
+            e.setRequestHeader("apikey", "app")
+        },
+        url: url,
+        dataType: "json",
+        timeout:50000,
+        success: function(e) {
+            console.log(e);
+            // console.log(e.result.exams);
+            //myApp.template7Data['page:homework']['today_homework'] = homework;
+            // console.log(e.result);
+            // var template = $$('#attendancetemplate').html();
+            // var compiledTemplate = Template7.compile(template);
+            // var html = compiledTemplate({attendance:e.result.attendance});
+            // $$('.js-attendance-chart').html(html);
+            // // console.log((e.result.notes).length);
+            // if((e.result.attendance).length == 0)
+            //     $$('.js-exam-chart').html('<p>There is no attendance uploaded by now by your class teacher.</p>');
+            // myApp.addNotification({
+            //     message: 'Thank you teacher,your homework has been uploaded :)',
+            // });
+        },
+        error: function(xhr, status) {
+            if(status == 'timeout')
+                myApp.alert('Please check your internet connection','Internet Down!');
+        }
+      })
+}
+
+//------------------ classwork functionalities end----------------------------------------------------------------------//
+
+//------------------ homework functionalities start----------------------------------------------------------------------//
+
+function getClassWork(student_id,date){
+    if(student_id == undefined)
+        return;
+    var url = "http://139.59.34.36/master/parentapi/loadclasswork?student_id=" + parseInt(student_id)+"&date="+date;
+    $$.ajax({
+        type: "GET",
+        beforeSend: function(e) {
+            e.setRequestHeader("Accept", "application/json"), 
+            e.setRequestHeader("apikey", "app")
+        },
+        url: url,
+        dataType: "json",
+        timeout:50000,
+        success: function(e) {
+            console.log(e);
+            // console.log(e.result.exams);
+            //myApp.template7Data['page:homework']['today_homework'] = homework;
+            // console.log(e.result);
+            // var template = $$('#attendancetemplate').html();
+            // var compiledTemplate = Template7.compile(template);
+            // var html = compiledTemplate({attendance:e.result.attendance});
+            // $$('.js-attendance-chart').html(html);
+            // // console.log((e.result.notes).length);
+            // if((e.result.attendance).length == 0)
+            //     $$('.js-exam-chart').html('<p>There is no attendance uploaded by now by your class teacher.</p>');
+            // myApp.addNotification({
+            //     message: 'Thank you teacher,your homework has been uploaded :)',
+            // });
+        },
+        error: function(xhr, status) {
+            if(status == 'timeout')
+                myApp.alert('Please check your internet connection','Internet Down!');
+        }
+      })
+}
+
+//------------------ homework functionalities end----------------------------------------------------------------------//
+
+
+
 //------------------ notes functionalities start----------------------------------------------------------------------//
 
 function createNotesTimeline(student_id,subject_id,class_id){
