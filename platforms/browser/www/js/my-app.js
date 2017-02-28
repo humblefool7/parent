@@ -6,7 +6,6 @@ Template7.registerHelper('json_stringify', function (context) {
 });
 
 // var student_selected = '';
-window.localStorage.setItem("student_selected",'');
 
 // getMarksChart(1,1,1,1,0);
 
@@ -60,8 +59,8 @@ var mainView = myApp.addView('.view-main', {
     myApp.onPageInit('index', function (page) {
             checkLoggedIn();
             $$('.students-select').on('change', function() {
-                setStudentData($$('.students-select').val());
                 window.localStorage.setItem("student_selected",$$('.students-select').val());
+                setStudentData($$('.students-select').val());
             })            
     }).trigger();
 
@@ -88,12 +87,6 @@ var mainView = myApp.addView('.view-main', {
         myApp.confirm('Are you sure you want to logout?',"Logout",function () {
             window.localStorage.clear();
             checkLoggedIn();
-            //mainView.router.refreshPage()
-            //myApp.loginScreen();
-            // window.localStorage.removeItem("parent_id");
-            // $$('#js-phone').val('');
-            // $$('#js-pin').val('');
-            // myApp.refreshPage();
         });
     });
 
@@ -113,9 +106,6 @@ var mainView = myApp.addView('.view-main', {
         d.setMonth(d.getMonth() - 1);
         start_date = new Date(d.getTime() - (d.getTimezoneOffset() * 60000)).toISOString().split('T')[0];
 
-        // console.log(end_date);
-        // console.log(start_date);
-
         calendarDateFormat1.setValue([start_date]);
         calendarDateFormat2.setValue([end_date]);
 
@@ -132,20 +122,6 @@ var mainView = myApp.addView('.view-main', {
                 createAttendanceTimeline(window.localStorage.getItem("student_selected"),start_date,end_date);
             }
         });
-
-
-
-            // console.log($$('#js-notes-subject').val()+'notes class');
-       //      var class_id = $$("#js-notes-subject").attr("data-class");
-       //      var subject_id = $$("#js-notes-subject").val();
-       //      createNotesTimeline(window.localStorage.getItem("student_selected"),subject_id,class_id);
-
-       //  $$('#js-notes-subject').on('change', function() {
-       //      var class_id = $$("#js-notes-subject").attr("data-class");
-       //      var subject_id = $$("#js-notes-subject").val();
-       //      createNotesTimeline(window.localStorage.getItem("student_selected"),subject_id,class_id);
-       // })
-
     }).trigger();
 
     myApp.onPageInit('notes', function (page) {
@@ -162,18 +138,90 @@ var mainView = myApp.addView('.view-main', {
 
     }).trigger();
 
+    myApp.onPageInit('classwork', function (page) {
+        var $$ = Dom7;
+        var monthNames = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August' , 'September' , 'October', 'November', 'December'];
+         
+        var calendarInline = myApp.calendar({
+            container: '#calendar-inline-container',
+            value: [new Date()],
+            weekHeader: false,
+            toolbarTemplate: 
+                '<div class="toolbar calendar-custom-toolbar">' +
+                    '<div class="toolbar-inner">' +
+                        '<div class="left">' +
+                            '<a href="#" class="link icon-only"><i class="icon icon-back"></i></a>' +
+                        '</div>' +
+                        '<div class="center"></div>' +
+                        '<div class="right">' +
+                            '<a href="#" class="link icon-only"><i class="icon icon-forward"></i></a>' +
+                        '</div>' +
+                    '</div>' +
+                '</div>',
+            onChange: function(p){
+                    var date = new Date(p.value[0]);
+                    var sqldate = new Date(date.getTime() - (date.getTimezoneOffset() * 60000)).toISOString().slice(0,10);
+                    console.log(sqldate);
+                    getClassWork(window.localStorage.getItem("student_selected"),sqldate);
+            },
+            onOpen: function (p) {
+                $$('.calendar-custom-toolbar .center').text(monthNames[p.currentMonth] +', ' + p.currentYear);
+                $$('.calendar-custom-toolbar .left .link').on('click', function () {
+                    calendarInline.prevMonth();
+                });
+                $$('.calendar-custom-toolbar .right .link').on('click', function () {
+                    calendarInline.nextMonth();
+                });
+            },
+            onMonthYearChangeStart: function (p) {
+                $$('.calendar-custom-toolbar .center').text(monthNames[p.currentMonth] +', ' + p.currentYear);
+            }
+            });    
+    }).trigger();
+
+    myApp.onPageInit('homework', function (page) {
+        var $$ = Dom7;
+        var monthNames = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August' , 'September' , 'October', 'November', 'December'];
+         
+        var calendarInline = myApp.calendar({
+            container: '#calendar-inline-container',
+            value: [new Date()],
+            weekHeader: false,
+            toolbarTemplate: 
+                '<div class="toolbar calendar-custom-toolbar">' +
+                    '<div class="toolbar-inner">' +
+                        '<div class="left">' +
+                            '<a href="#" class="link icon-only"><i class="icon icon-back"></i></a>' +
+                        '</div>' +
+                        '<div class="center"></div>' +
+                        '<div class="right">' +
+                            '<a href="#" class="link icon-only"><i class="icon icon-forward"></i></a>' +
+                        '</div>' +
+                    '</div>' +
+                '</div>',
+            onChange: function(p){
+                    var date = new Date(p.value[0]);
+                    var sqldate = new Date(date.getTime() - (date.getTimezoneOffset() * 60000)).toISOString().slice(0,10);
+                    console.log(sqldate);
+                    getHomeWork(window.localStorage.getItem("student_selected"),sqldate);
+            },
+            onOpen: function (p) {
+                $$('.calendar-custom-toolbar .center').text(monthNames[p.currentMonth] +', ' + p.currentYear);
+                $$('.calendar-custom-toolbar .left .link').on('click', function () {
+                    calendarInline.prevMonth();
+                });
+                $$('.calendar-custom-toolbar .right .link').on('click', function () {
+                    calendarInline.nextMonth();
+                });
+            },
+            onMonthYearChangeStart: function (p) {
+                $$('.calendar-custom-toolbar .center').text(monthNames[p.currentMonth] +', ' + p.currentYear);
+            }
+            });    
+    }).trigger();
+
 
     myApp.onPageInit('fees', function (page) {
-            // console.log($$('#js-notes-subject').val()+'notes class');
-/*            var class_id = $$("#js-notes-subject").attr("data-class");
-            var subject_id = $$("#js-notes-subject").val();
-            createNotesTimeline(window.localStorage.getItem("student_selected"),subject_id,class_id);*/
-
-       //  $$('#js-notes-subject').on('change', function() {
-       //      var class_id = $$("#js-notes-subject").attr("data-class");
-       //      var subject_id = $$("#js-notes-subject").val();
-       //      createNotesTimeline(window.localStorage.getItem("student_selected"),subject_id,class_id);
-       // })
        var payFunction = function(amount,description,image,order_id,name,customer_name,customer_contact){
                 // console.log('bla bla');
                 var options = {
@@ -194,22 +242,28 @@ var mainView = myApp.addView('.view-main', {
                 }
 
                 var successCallback = function(success) {
-                  alert('payment_id: ' + success.razorpay_payment_id)
-                  var orderId = success.razorpay_order_id
-                  var signature = success.razorpay_signature
+                    $$('.js-fees-success').show();
+                    $$('.js-fees-details').hide();
+                    // console.log(JSON.stringify(success));
+                  // alert('payment_id: ' + success.razorpay_payment_id)
+                  // var orderId = success.razorpay_order_id
+                  // var signature = success.razorpay_signature
                 }
 
                 var cancelCallback = function(error) {
+                    $$('.js-fees-fail').show();
                   // alert(error.description + ' (Error '+error.code+')')
                 }
 
                 RazorpayCheckout.on('payment.success', successCallback)
                 RazorpayCheckout.on('payment.cancel', cancelCallback)
                 RazorpayCheckout.open(options)
-                // 342964820431306
     }
 
     $$('.js-pay-fee').on('click', function (e){
+            $$('.js-fees-success').hide();
+            $$('.js-fees-fail').hide();
+            $$('.js-fees-details').show();
             var student_id = $$('.student-fees-select').val();
             var enrollment_number = $$('.js-enrollment-number').val();
             var amount = $$('.js-fee-amount').val();
@@ -220,11 +274,8 @@ var mainView = myApp.addView('.view-main', {
                 payFunction(amount*100,'School Fees','http://www.clker.com/cliparts/Z/F/Y/E/X/y/logo-school-md.png',enrollment_number,window.localStorage.getItem("school_name"),window.localStorage.getItem("parent_name"),window.localStorage.getItem("parent_phone"));
             else
                 myApp.alert('Please fill in the enrollment number and the amount','Error !');
-            // console.log('usoads');
-            // something();
     });
 
-    // something();
 
     }).trigger();
 
@@ -243,15 +294,18 @@ var mainView = myApp.addView('.view-main', {
         }else{
             myApp.closeModal($$('.login-screen'));
             var students = JSON.parse(window.localStorage.getItem("students"));
-
+            // console.log(students);
             myApp.template7Data['page:index']['student'] = students;
             myApp.template7Data['page:fees']['student'] = students;
             if(window.localStorage.getItem("student_selected") == ''){
                 setStudentData(students[0]["student_id"]);
                 window.localStorage.setItem("student_selected",students[0]["student_id"]);
+                $$('.students-select').val(students[0]["student_id"]).change();
             }
-            else
+            else{
                 $$('.students-select').val(window.localStorage.getItem("student_selected")).change();
+                setStudentData(window.localStorage.getItem("student_selected"));
+            }
 
             if(students.length <= 1){
                 $$('.js-welcome-students').hide();
@@ -282,7 +336,7 @@ $$(document).on('ajaxStart', function (e) {
 function setStudentData(student_id){
             // console.log('setting student data for'+student_id);
             // $$('.students-select').val(student_id).change();
-            // console.log(student_id);
+            
             var students = JSON.parse(window.localStorage.getItem("students"));
             var subjects = [];
             var index = 0;
@@ -297,6 +351,11 @@ function setStudentData(student_id){
             myApp.template7Data['page:notes']['class_id'] = students[index]["class_id"];
             window.localStorage.setItem("school_name",students[index]["school_name"])
             myApp.template7Data['page:notes']['subjects'] = subjects;
+            var d = new Date();
+            var date = new Date(d.getTime() - (d.getTimezoneOffset() * 60000)).toISOString().split('T')[0];
+            getClassWork(student_id,date);
+            getHomeWork(student_id,date);
+            createExamTimeline(window.localStorage.getItem("student_selected"));
 }
 
 function sendOtp(phone){
@@ -344,6 +403,7 @@ function sendOtp(phone){
                 $$('.js-generate-otp').show();
                 $$('.js-generate-otp').show();
                 window.localStorage.clear();
+                window.localStorage.setItem("student_selected",'');
                 window.localStorage.setItem("parent_id",e.result.parent_id);
                 window.localStorage.setItem("parent_name",e.result.parent_name);
                 window.localStorage.setItem("parent_phone",e.result.parent_phone);
@@ -352,7 +412,7 @@ function sendOtp(phone){
                 // window.localStorage.setItem("subjects",JSON.stringify(e.result.subjects));
                 //myApp.closeModal();
                 checkLoggedIn();
-                // mainView.router.refreshPage();
+                mainView.router.refreshPage();
                 // myApp.refreshPage();                
             },
             error: function(xhr, status) {
@@ -388,9 +448,16 @@ function createExamTimeline(student_id){
             var compiledTemplate = Template7.compile(template);
             var html = compiledTemplate({exam:e.result.exams});
             $$('.js-exam-chart').html(html);
+
+            var template = $$('#examdashboard').html();
+            var compiledTemplate = Template7.compile(template);
+            var html = compiledTemplate({exam:e.result.exams});
+            $$('.js-exams-list').html(html);
             // console.log((e.result.notes).length);
-            if((e.result.exams).length == 0)
-                $$('.js-exam-chart').html('<p>There are no exams scheduled by now from your class teacher.</p>');
+            if((e.result.exams).length == 0){
+                $$('.js-exam-chart').html('<p>There are no exams scheduled as of now by your class teacher.</p>');
+                $$('.js-exams-list').html('<p>There are no exams scheduled as of now by your class teacher.</p>');
+            }
             // myApp.addNotification({
             //     message: 'Thank you teacher,your homework has been uploaded :)',
             // });
@@ -444,9 +511,11 @@ function createAttendanceTimeline(student_id,start_date,end_date){
 
 //------------------ attendance functionalities end----------------------------------------------------------------------//
 
+
+
 //------------------ classwork functionalities start----------------------------------------------------------------------//
 
-function getHomework(student_id,date){
+function getHomeWork(student_id,date){
     if(student_id == undefined)
         return;
     var url = "http://139.59.34.36/master/parentapi/loadhomework?student_id=" + parseInt(student_id)+"&date="+date;
@@ -460,14 +529,20 @@ function getHomework(student_id,date){
         dataType: "json",
         timeout:50000,
         success: function(e) {
-            console.log(e);
+            if(e.result.homework != ''){
+                var template = $$('#homeworkdashboard').html();
+                //console.log(template);
+                var compiledTemplate = Template7.compile(template);
+                var html = compiledTemplate({homework:e.result.homework});
+                $$('.js-homework-today').html(html);
+            }else{
+                $$('.js-homework-today').html('Not availaible<hr style="border-top: 1px dashed #8c8b8b;">'); 
+            }
+            // console.log(e);
+
             // console.log(e.result.exams);
             //myApp.template7Data['page:homework']['today_homework'] = homework;
             // console.log(e.result);
-            // var template = $$('#attendancetemplate').html();
-            // var compiledTemplate = Template7.compile(template);
-            // var html = compiledTemplate({attendance:e.result.attendance});
-            // $$('.js-attendance-chart').html(html);
             // // console.log((e.result.notes).length);
             // if((e.result.attendance).length == 0)
             //     $$('.js-exam-chart').html('<p>There is no attendance uploaded by now by your class teacher.</p>');
@@ -500,7 +575,15 @@ function getClassWork(student_id,date){
         dataType: "json",
         timeout:50000,
         success: function(e) {
-            console.log(e);
+            if(e.result.classwork != ''){
+                 var template = $$('#classworkdashboard').html();
+                var compiledTemplate = Template7.compile(template);
+                var html = compiledTemplate({classwork:e.result.classwork});
+                $$('.js-classwork-today').html(html);
+            }else{
+                $$('.js-classwork-today').html('Not availaible<hr style="border-top: 1px dashed #8c8b8b;">');
+            }
+            // console.log(e);
             // console.log(e.result.exams);
             //myApp.template7Data['page:homework']['today_homework'] = homework;
             // console.log(e.result);

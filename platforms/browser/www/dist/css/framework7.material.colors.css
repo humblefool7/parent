@@ -8178,3 +8178,284 @@ html:not(.watch-active-state) .speed-dial-buttons a.bg-black:active,
   background-color: #000000;
   color: #fff;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.theme-freespeechblue .button:not(.button-fill) {
+  color: #3C4FB0;
+}
+.theme-freespeechblue .navbar .button:not(.button-fill),
+.theme-freespeechblue.navbar .button:not(.button-fill),
+.theme-freespeechblue .toolbar .button:not(.button-fill),
+.theme-freespeechblue.toolbar .button:not(.button-fill),
+.theme-freespeechblue .subnavbar .button:not(.button-fill),
+.theme-freespeechblue.subnavbar .button:not(.button-fill) {
+  color: #fff;
+}
+.theme-freespeechblue .button.button-fill {
+  background: #3C4FB0;
+  color: #fff;
+}
+html:not(.watch-active-state) .theme-freespeechblue .button.button-fill:active,
+.theme-freespeechblue .button.button-fill.active-state {
+  background: #D32F2F;
+}
+.progressbar.theme-freespeechblue,
+.theme-freespeechblue .progressbar {
+  background-color: rgba(244, 67, 54, 0.5);
+}
+.progressbar.theme-freespeechblue span,
+.theme-freespeechblue .progressbar span {
+  background-color: #3C4FB0;
+}
+.progressbar-infinite.theme-freespeechblue,
+.theme-freespeechblue .progressbar-infinite {
+  background-color: rgba(244, 67, 54, 0.5);
+}
+.progressbar-infinite.theme-freespeechblue:after,
+.theme-freespeechblue .progressbar-infinite:after,
+.progressbar-infinite.theme-freespeechblue:before,
+.theme-freespeechblue .progressbar-infinite:before {
+  background-color: #3C4FB0;
+}
+.color-red i.icon,
+i.icon.color-red {
+  color: #3C4FB0;
+}
+i.icon-next.color-red,
+i.icon-next.theme-freespeechblue {
+  background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20fill%3D'%23f44336'%20width%3D'24'%20height%3D'24'%20viewBox%3D'0%200%2024%2024'%3E%3Cpath%20d%3D'M10%206L8.59%207.41%2013.17%2012l-4.58%204.59L10%2018l6-6z'%2F%3E%3Cpath%20d%3D'M0%200h24v24H0z'%20fill%3D'none'%2F%3E%3C%2Fsvg%3E");
+}
+i.icon-prev.color-red,
+i.icon-prev.theme-freespeechblue {
+  background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20fill%3D'%23f44336'%20width%3D'24'%20height%3D'24'%20viewBox%3D'0%200%2024%2024'%3E%3Cpath%20d%3D'M15.41%207.41L14%206l-6%206%206%206%201.41-1.41L10.83%2012z'%2F%3E%3Cpath%20d%3D'M0%200h24v24H0z'%20fill%3D'none'%2F%3E%3C%2Fsvg%3E");
+}
+i.icon-back.color-red,
+i.icon-back.theme-freespeechblue {
+  background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20width%3D'24'%20height%3D'24'%20viewBox%3D'0%200%2024%2024'%3E%3Cpath%20d%3D'M20%2011H7.83l5.59-5.59L12%204l-8%208%208%208%201.41-1.41L7.83%2013H20v-2z'%20fill%3D'%23f44336'%2F%3E%3C%2Fsvg%3E");
+}
+i.icon-forward.color-red,
+i.icon-forward.theme-freespeechblue {
+  background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20width%3D'24'%20height%3D'24'%20viewBox%3D'0%200%2024%2024'%3E%3Cpath%20d%3D'M12%204l-1.41%201.41L16.17%2011H4v2h12.17l-5.58%205.59L12%2020l8-8z'%20fill%3D'%23f44336'%2F%3E%3C%2Fsvg%3E");
+}
+i.icon-bars.color-red,
+i.icon-bars.theme-freespeechblue {
+  background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20width%3D'24'%20height%3D'24'%20viewBox%3D'0%200%2024%2024'%3E%3Cpath%20d%3D'M3%2018h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z'%20fill%3D'%23f44336'%2F%3E%3C%2Fsvg%3E");
+}
+.theme-freespeechblue a {
+  color: #3C4FB0;
+}
+.theme-freespeechblue .navbar,
+.navbar.theme-freespeechblue,
+.theme-freespeechblue .toolbar,
+.toolbar.theme-freespeechblue,
+.theme-freespeechblue .subnavbar,
+.subnavbar.theme-freespeechblue,
+.theme-freespeechblue .searchbar,
+.searchbar.theme-freespeechblue {
+  background-color: #3C4FB0;
+}
+.theme-freespeechblue .label-switch input[type="checkbox"]:checked + .checkbox,
+.label-switch.theme-freespeechblue input[type="checkbox"]:checked + .checkbox {
+  background-color: rgba(244, 67, 54, 0.5);
+}
+.theme-freespeechblue .label-switch input[type="checkbox"]:checked + .checkbox:after,
+.label-switch.theme-freespeechblue input[type="checkbox"]:checked + .checkbox:after {
+  background-color: #3C4FB0;
+}
+.theme-freespeechblue label.label-checkbox,
+label.label-checkbox.theme-freespeechblue {
+  cursor: pointer;
+}
+.theme-freespeechblue label.label-checkbox i.icon-form-checkbox:after,
+label.label-checkbox.theme-freespeechblue i.icon-form-checkbox:after {
+  background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20fill%3D'%23ffffff'%20width%3D'24'%20height%3D'24'%20viewBox%3D'0%200%2024%2024'%3E%3Cpath%20d%3D'M9%2016.17L4.83%2012l-1.42%201.41L9%2019%2021%207l-1.41-1.41z'%2F%3E%3C%2Fsvg%3E");
+}
+.theme-freespeechblue label.label-checkbox input[type="checkbox"]:checked + .item-media i.icon-form-checkbox,
+label.label-checkbox.theme-freespeechblue input[type="checkbox"]:checked + .item-media i.icon-form-checkbox,
+.theme-freespeechblue label.label-checkbox input[type="radio"]:checked + .item-media i.icon-form-checkbox,
+label.label-checkbox.theme-freespeechblue input[type="radio"]:checked + .item-media i.icon-form-checkbox,
+.theme-freespeechblue label.label-checkbox input[type="checkbox"]:checked ~ .item-after i.icon-form-checkbox,
+label.label-checkbox.theme-freespeechblue input[type="checkbox"]:checked ~ .item-after i.icon-form-checkbox,
+.theme-freespeechblue label.label-checkbox input[type="radio"]:checked ~ .item-after i.icon-form-checkbox,
+label.label-checkbox.theme-freespeechblue input[type="radio"]:checked ~ .item-after i.icon-form-checkbox,
+.theme-freespeechblue label.label-checkbox input[type="checkbox"]:checked ~ .item-inner i.icon-form-checkbox,
+label.label-checkbox.theme-freespeechblue input[type="checkbox"]:checked ~ .item-inner i.icon-form-checkbox,
+.theme-freespeechblue label.label-checkbox input[type="radio"]:checked ~ .item-inner i.icon-form-checkbox,
+label.label-checkbox.theme-freespeechblue input[type="radio"]:checked ~ .item-inner i.icon-form-checkbox {
+  border-color: #3C4FB0;
+  background-color: #3C4FB0;
+}
+.theme-freespeechblue label.label-radio i.icon-form-radio:after,
+label.label-radio.theme-freespeechblue i.icon-form-radio:after {
+  background-color: #3C4FB0;
+}
+.theme-freespeechblue label.label-radio input[type="checkbox"]:checked + .item-media i.icon-form-radio,
+label.label-radio.theme-freespeechblue input[type="checkbox"]:checked + .item-media i.icon-form-radio,
+.theme-freespeechblue label.label-radio input[type="radio"]:checked + .item-media i.icon-form-radio,
+label.label-radio.theme-freespeechblue input[type="radio"]:checked + .item-media i.icon-form-radio,
+.theme-freespeechblue label.label-radio input[type="checkbox"]:checked ~ .item-after i.icon-form-radio,
+label.label-radio.theme-freespeechblue input[type="checkbox"]:checked ~ .item-after i.icon-form-radio,
+.theme-freespeechblue label.label-radio input[type="radio"]:checked ~ .item-after i.icon-form-radio,
+label.label-radio.theme-freespeechblue input[type="radio"]:checked ~ .item-after i.icon-form-radio,
+.theme-freespeechblue label.label-radio input[type="checkbox"]:checked ~ .item-inner i.icon-form-radio,
+label.label-radio.theme-freespeechblue input[type="checkbox"]:checked ~ .item-inner i.icon-form-radio,
+.theme-freespeechblue label.label-radio input[type="radio"]:checked ~ .item-inner i.icon-form-radio,
+label.label-radio.theme-freespeechblue input[type="radio"]:checked ~ .item-inner i.icon-form-radio {
+  border-color: #3C4FB0;
+}
+.theme-freespeechblue label.label-radio input[type="checkbox"]:checked + .item-media i.icon-form-radio:after,
+label.label-radio.theme-freespeechblue input[type="checkbox"]:checked + .item-media i.icon-form-radio:after,
+.theme-freespeechblue label.label-radio input[type="radio"]:checked + .item-media i.icon-form-radio:after,
+label.label-radio.theme-freespeechblue input[type="radio"]:checked + .item-media i.icon-form-radio:after,
+.theme-freespeechblue label.label-radio input[type="checkbox"]:checked ~ .item-after i.icon-form-radio:after,
+label.label-radio.theme-freespeechblue input[type="checkbox"]:checked ~ .item-after i.icon-form-radio:after,
+.theme-freespeechblue label.label-radio input[type="radio"]:checked ~ .item-after i.icon-form-radio:after,
+label.label-radio.theme-freespeechblue input[type="radio"]:checked ~ .item-after i.icon-form-radio:after,
+.theme-freespeechblue label.label-radio input[type="checkbox"]:checked ~ .item-inner i.icon-form-radio:after,
+label.label-radio.theme-freespeechblue input[type="checkbox"]:checked ~ .item-inner i.icon-form-radio:after,
+.theme-freespeechblue label.label-radio input[type="radio"]:checked ~ .item-inner i.icon-form-radio:after,
+label.label-radio.theme-freespeechblue input[type="radio"]:checked ~ .item-inner i.icon-form-radio:after {
+  background-color: #3C4FB0;
+}
+.theme-freespeechblue .focus-state .label,
+.theme-freespeechblue .focus-state .floating-label {
+  color: #3C4FB0;
+}
+.theme-freespeechblue .item-input-field.focus-state:after,
+.theme-freespeechblue .input-field.focus-state:after,
+.theme-freespeechblue .item-input-field.not-empty-state:after,
+.theme-freespeechblue .input-field.not-empty-state:after {
+  background: #3C4FB0;
+}
+.theme-freespeechblue .picker-calendar-day.picker-calendar-day-today span {
+  color: #3C4FB0;
+}
+.theme-freespeechblue .picker-calendar-day.picker-calendar-day-selected span {
+  background-color: #3C4FB0;
+  color: #fff;
+}
+.theme-freespeechblue .picker-calendar-day.picker-calendar-day-has-events span:after {
+  background-color: #3C4FB0;
+}
+.theme-freespeechblue .picker-header {
+  background-color: #3C4FB0;
+}
+.theme-freespeechblue .modal-button {
+  color: #3C4FB0;
+}
+.swiper-pagination.color-red .swiper-pagination-bullet-active,
+.theme-freespeechblue .swiper-pagination .swiper-pagination-bullet-active {
+  background-color: #3C4FB0;
+}
+.swiper-pagination.color-red .swiper-pagination-progressbar,
+.theme-freespeechblue .swiper-pagination .swiper-pagination-progressbar {
+  background-color: #3C4FB0;
+}
+.swiper-pagination.swiper-pagination-progress.bg-red {
+  background-color: rgba(244, 67, 54, 0.25);
+}
+.swiper-button-next.color-red,
+.swiper-container-rtl .swiper-button-prev.color-red,
+.theme-freespeechblue .swiper-button-next,
+.theme-freespeechblue .swiper-container-rtl .swiper-button-prev {
+  background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2027%2044'%3E%3Cpath%20d%3D'M27%2C22L27%2C22L5%2C44l-2.1-2.1L22.8%2C22L2.9%2C2.1L5%2C0L27%2C22L27%2C22z'%20fill%3D'%23f44336'%2F%3E%3C%2Fsvg%3E");
+}
+.swiper-button-prev.color-red,
+.swiper-container-rtl .swiper-button-next.color-red,
+.theme-freespeechblue .swiper-button-prev,
+.theme-freespeechblue .swiper-container-rtl .swiper-button-next {
+  background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2027%2044'%3E%3Cpath%20d%3D'M0%2C22L22%2C0l2.1%2C2.1L4.2%2C22l19.9%2C19.9L22%2C44L0%2C22L0%2C22L0%2C22z'%20fill%3D'%23f44336'%2F%3E%3C%2Fsvg%3E");
+}
+.theme-freespeechblue .floating-button,
+.theme-freespeechblue .speed-dial-buttons a,
+.floating-button.theme-freespeechblue,
+.speed-dial-buttons a.theme-freespeechblue {
+  color: #fff;
+  background: #3C4FB0;
+}
+html:not(.watch-active-state) .theme-freespeechblue .floating-button:active,
+html:not(.watch-active-state) .theme-freespeechblue .speed-dial-buttons a:active,
+html:not(.watch-active-state) .floating-button.theme-freespeechblue:active,
+html:not(.watch-active-state) .speed-dial-buttons a.theme-freespeechblue:active,
+.theme-freespeechblue .floating-button.active-state,
+.theme-freespeechblue .speed-dial-buttons a.active-state,
+.floating-button.theme-freespeechblue.active-state,
+.speed-dial-buttons a.theme-freespeechblue.active-state {
+  background: #D32F2F;
+}
+.theme-freespeechblue .floating-button i,
+.theme-freespeechblue .speed-dial-buttons a i,
+.floating-button.theme-freespeechblue i,
+.speed-dial-buttons a.theme-freespeechblue i {
+  color: inherit;
+}
+.theme-freespeechblue .range-slider input[type="range"]::-webkit-slider-thumb:before,
+.range-slider.theme-freespeechblue input[type="range"]::-webkit-slider-thumb:before {
+  background-color: #3C4FB0;
+}
+.theme-freespeechblue .range-slider input[type="range"]::-webkit-slider-thumb,
+.range-slider.theme-freespeechblue input[type="range"]::-webkit-slider-thumb {
+  background-color: #3C4FB0;
+}
+.theme-freespeechblue .range-slider input[type="range"]::-ms-thumb,
+.range-slider.theme-freespeechblue input[type="range"]::-ms-thumb {
+  background-color: #3C4FB0;
+}
+.theme-freespeechblue .range-slider input[type="range"]::-ms-fill-lower,
+.range-slider.theme-freespeechblue input[type="range"]::-ms-fill-lower {
+  background-color: #3C4FB0;
+}
+.theme-freespeechblue .range-slider input[type="range"]::-moz-range-thumb,
+.range-slider.theme-freespeechblue input[type="range"]::-moz-range-thumb {
+  background-color: #3C4FB0;
+}
+.badge.theme-freespeechblue {
+  background-color: #3C4FB0;
+  color: #fff;
+}

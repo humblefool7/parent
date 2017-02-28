@@ -9,7 +9,7 @@
 <!--     <title>Convent School</title> -->
     <!-- Path to Framework7 Library CSS-->
     <link rel="stylesheet" href="dist/css/framework7.material.min.css">
-    <link rel="stylesheet" href="dist/css/framework7.material.colors.min.css">
+    <link rel="stylesheet" href="dist/css/framework7.material.colors.css">
     <link rel="stylesheet" href="dist/css/kitchen-sink.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <!-- Path to your custom app styles-->
@@ -31,7 +31,7 @@
     <link rel="stylesheet" type="text/css" href="css/index.css" />
   <!--   <title>Convent School Appplication</title> -->
 </head>
-  <body class="theme-indigo">
+  <body class="theme-freespeechblue">
     <div class="login-screen modal-in">
       <!-- Default view-page layout -->
       <div class="view">
@@ -183,10 +183,40 @@
                 </ul>
                 </div>
 <!--                     <div class="content-block-title">Dashboard</div> -->
-                      <div class="content-block ks-grid">
+                      <div class="content-block ks-grid" style="padding: 0 10px !important">
 
                             <div class="row">
-                              <div class="col-50 shadowbox">
+                              <div class="col-33 shadowbox">
+                                <a href="notes.html">
+                                  <div class="item-content">
+                                        <img src="https://assets.materialup.com/uploads/d65b0c05-ab26-48a3-b117-41e53851b585/preview" height="80px">
+                                    <div class="item-inner">
+                                        <div class="item-title"><b>Curriculars</b></div>
+                                    </div>
+                                  </div>
+                                  </a>
+                              </div>
+<!--                             <div class="col-25">
+                                <a href="exam.html">
+                                  <div class="item-content">
+                                        <img src="https://assets.materialup.com/uploads/d0b393f6-3975-48dd-b7ca-bf0289187c6e/preview" alt="exam" height="80px">
+                                    <div class="item-inner">
+                                        <div class="item-title"><b>Exam Schedule</b></div>
+                                    </div>=
+                                  </div>
+                                  </a>
+                              </div> -->
+                              <div class="col-33 shadowbox">
+                                <a href="performance.html">
+                                  <div class="item-content">
+                                        <img src="https://assets.materialup.com/uploads/98f79fb7-cabc-4550-830e-9b8aff186451/preview" alt="performance" height="80px">
+                                    <div class="item-inner">
+                                        <div class="item-title"><b>Performance</b></div>
+                                    </div>
+                                  </div>
+                                  </a>
+                              </div>
+                              <div class="col-33 shadowbox">
                                 <a href="attendance.html">
                                   <div class="item-content">
                                         <img src="https://assets.materialup.com/uploads/5e5c9fcb-fff8-4c2b-be6e-5dbc42457ba0/preview" alt="attendance" height="80px">
@@ -197,19 +227,18 @@
                                   </div>
                                   </a>
                               </div>
-                              <div class="col-50 shadowbox">
+<!--                               <div class="col-50 shadowbox">
                                 <a href="homework.html">
                                   <div class="item-content">
                                         <img src="https://assets.materialup.com/uploads/c8bda470-8253-4d1a-86cc-4d9762ea6379/twOma0PzclgQNrKYY0_HUR_Y53XS0oUQkVc0QupYm60umKTe5vR-HKPK6NX41Qc4h0Q=w300" height="80px" >
                                     <div class="item-inner">
                                         <div class="item-title"><b>Homework</b></div>
-<!--                                         <small>Check Homework</small> -->
                                     </div>
                                   </div>
                                   </a>
-                              </div>
+                              </div> -->
                             </div>
-                            <div class="row">
+<!--                             <div class="row">
                               <div class="col-50 shadowbox">
                                 <a href="classwork.html">
                                   <div class="item-content">
@@ -252,8 +281,34 @@
                                   </div>
                                   </a>
                               </div>
-                            </div>
+                            </div> -->
                   </div>
+                  <div class="card card-shadowbox">
+                          <div class="card-header"><b>Class-Activity</b></div>
+                          <div class="card-content">
+                              <div class="card-content-padless js-classwork-today" style="font-size: 15px;">
+                              </div>
+                              </div>
+                          <div class="card-footer"><a href="classwork.html">View previous classworks</a></div>
+                    </div>
+                    <div class="card">
+                          <div class="card-header"><b>Home-Work</b></div>
+                          <div class="card-content">
+                              <div class="card-content-padless js-homework-today" style="font-size: 15px;">
+                              </div>
+                              </div>
+                          <div class="card-footer"><a href="homework.html">View previous homeworks</a></div>
+                    </div>
+                    <div class="card">
+                          <div class="card-header"><b>Exam Schedule</b></div>
+                          <div class="card-content">
+                              <div class="card-content-padless list-block">
+                                      <ul class="js-exams-list" style="font-size: 15px !important">
+                                      </ul>
+                              </div>
+                              </div>
+                          <div class="card-footer"><a href="exam.html">View detailed schedule</div>
+                    </div>
 <!--                 </div> -->
             </div>
           </div>
@@ -405,6 +460,29 @@
                           </div>
     {{/each exam}}
     </script>
+        <script type="text/template7" id="examdashboard">
+          {{#each exam}}  
+              <li class="item-content">
+<!--               <div class="item-media"><i class="icon icon-f7"></i></div> -->
+              <div class="item-inner">
+              <div class="item-title">
+                          {{#if exam_over}}
+                                  <strike>{{subject_name}} {{exam_name}}</strike>
+                          {{else}}
+                                  {{subject_name}} {{exam_name}}
+                          {{/if}}
+              </div>
+              <div class="item-after">
+                          {{#if exam_over}}
+                                <strike>{{exam_short_date}}</strike>
+                          {{else}}
+                               {{exam_short_date}}
+                          {{/if}}
+              </div>
+              </div>
+              </li>
+          {{/each exam}}
+    </script>
     <script type="text/template7" id="notestimeline">
     {{#each notes}}
       <div class="timeline-item">
@@ -446,6 +524,21 @@
                   </div>
               </li> 
     {{/each student}}
+    </script>
+    <script type="text/template7" id="classworkdashboard">
+    {{#each classwork}}
+            <div class="item-title"><b>{{subject_name}}</b></div>
+            {{classwork}}
+            <hr style="border-top: 1px dashed #8c8b8b;">
+<!--                         <hr> -->
+    {{/each classwork}}
+    </script>
+        <script type="text/template7" id="homeworkdashboard">
+    {{#each homework}}
+            <div class="item-title"><b>{{subject_name}}</b></div>
+    {{homework}}
+    <hr style="border-top: 1px dashed #8c8b8b;">
+    {{/each homework}}
     </script>
     <script type="text/template7" id="notesbrowser">
     <div class="navbar">

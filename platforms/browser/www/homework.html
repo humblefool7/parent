@@ -5,53 +5,32 @@
     <div class="left sliding"><a href="index.html" class="link"> <i class="icon icon-back"></i></a></div>
     <div class="center sliding">Homework</div>
     <div class="right"><a href="#" class="link icon-only open-panel"> <i class="icon icon-bars"></i></a></div>
-    </div>
-    <div class="list-block" style="margin-top: 56px;background-color:#fafbfc;color: black;">
-                <ul>
-                    <li><a href="#" class="item-link smart-select" data-open-in="picker">
-                        <select name="class" id="js-homework-class">
-                          {{#each work}}
-                          <option value="{{id}}" data-class="{{class_id}}" data-subject="{{subject_id}}">{{class_name}} {{subject_name}}</option>
-                          {{/each}}
-                        </select>
-                      <div class="item-content">
-                          <div class="item-inner">
-                              <div class="item-title">Class</div>
-                          </div>
-                    </div></a></li>
-                </ul>
-            </div>
   </div>
-    <div class="page-content" style="margin-top: 40px;">
-          <div class="content-block-title">Homework for Today</div>
+      <div class="list-block" style="margin-top: 56px;background-color:#fafbfc;color: black;">
+                <ul>
+                </ul>
+        </div>
+  </div>
+    <div class="page-content" style="margin-top: 0px;">
+<!--     <div class="content-block-title">Inline with custom toolbar</div> -->
+          <div class="content-block-title"><span>Homework</span><span></span></div>
           <div class="card">
           <div class="card-content"> 
-            <div class="card-content-inner">
-            <div class="list-block">
-                <ul>
-                  <li class="align-top">
-                          
-                    <div class="item-content">
-                      <div class="item-inner">
-                        <div class="item-input">
-                            <textarea id="js-today-homework" placeholder="Write your homework for today here.Be short as possible!" rows="4" cols="50" name="homework">{{today_homework}}</textarea>
-                        </div>
-                      </div>
-                    </div>
-                  </li>
-                </ul>
+                <div class="card-content-inner js-homework-today" style="font-size: 15px;">
+                </div>
                 </div>
             </div>
-          </div>
-          <div class="card-footer"><a href="#" class="button button-raised button-fill" id="save_homework">Save</a></div>
-          </div>
-          <div class="card">
-            <div class="card-content"> 
-            <div class="content-block-title">Last Homework</div>
-              <div class="card-content-inner" id="js-last-homework">{{last_homework}}</div>
-            </div>
-            <div class="card-footer" id="js-last-homework-date"></div>
-          </div>
+<div class="content-block-title">
+   Tap to get homework on a particular date
+</div>
+<div class="content-block">
+  <div style="padding:0; margin-right:-15px; width:auto" class="content-block-inner">
+  <div class="card">
+   <div class="card-content">
+    <div id="calendar-inline-container" class="js-homework-calender"></div>
     </div>
+  </div>
+  </div>
+</div> 
   </div>
 </div>

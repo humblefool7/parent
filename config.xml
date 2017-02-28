@@ -1,11 +1,11 @@
 <?xml version='1.0' encoding='utf-8'?>
 <widget id="com.phonegap.helloworld" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
-    <name>Hello World</name>
+    <name>M School</name>
     <description>
-        Hello World sample application that responds to the deviceready event.
+        School Application
     </description>
-    <author email="support@phonegap.com" href="http://phonegap.com">
-        PhoneGap Team
+    <author email="nishant483@gmail.com" href="http://phonegap.com">
+        Nishant
     </author>
     <content src="index.html" />
     <preference name="DisallowOverscroll" value="true" />
@@ -33,6 +33,7 @@
     <plugin name="cordova-plugin-fileopener" source="npm" spec="~1.0.5" />
     <plugin source="git" spec="https://github.com/guinatal/refreshgallery.git" />
     <plugin name="com.razorpay.cordova" spec="https://github.com/razorpay/razorpay-cordova.git" />
+    <plugin name="onesignal-cordova-plugin" spec="^2.0.10" source="npm" />
     <platform name="android">
         <icon density="ldpi" src="www/res/icon/android/drawable-ldpi-icon.png" />
         <icon density="mdpi" src="www/res/icon/android/drawable-mdpi-icon.png" />
